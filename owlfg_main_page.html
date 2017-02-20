@@ -9,6 +9,7 @@
 	<link rel="shortcut icon" href=""/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script src="js/owlfg.js"></script>
 </head>
 <body>
     <!-- navigation bar -->
@@ -91,43 +92,30 @@
 				<button type="search" class="btn btn-default">Refine</button>
 			</form>
 		</div>
-		<div id="list-me" class="container-fluid col-md-8">
-			<button type="button" class="btn btn-default" id="list-user"><span class="glyphicon glyphicon-plus"></span> List me</button>
+		<div id="list_user" class="container-fluid col-md-8">
+			<button type="button" class="btn btn-default" id="list_me"><span class="glyphicon glyphicon-plus"></span> List me</a>
 		</div>
 		<div id="results" class="container-fluid col-md-8">
 			<h3>Results</h3>
-				<div class="table-responsive">
-					<!-- maybe a search feature? -->
-  					<table class="table">
-   					 	<tr class="header">
-    						<th style="width:25%;">Username</th>
-    						<th style="width:10%;">Server</th>
-							<th style="width:10%;">SR Rank</th>
-							<th style="width:10%;">Role</th>
-							<th style="width:10%;">Level</th>
-							<th style="width:10%;">Platform</th>
-							<th style="width:10%;">Microphone</th>
- 						 </tr>
-						  <tr id="found-player" class="results">
-    						<td style="width:25%;">H0tsh07</th>
-    						<td style="width:10%;">myserver</th>
-							<td style="width:10%;">over 9000</th>
-							<td style="width:10%;">Tank</th>
-							<td style="width:10%;">2000</th>
-							<td style="width:10%;">PC</th>
-							<td style="width:10%;">Yes</th>
- 						 </tr>
-						  <tr id="found-player"  class="results">
-    						<td style="width:25%;">SuperSeriousGamer</th>
-    						<td style="width:10%;">myserver</th>
-							<td style="width:10%;">0</th>
-							<td style="width:10%;">DPS</th>
-							<td style="width:10%;">2</th>
-							<td style="width:10%;">PS4</th>
-							<td style="width:10%;">No</th>
- 						 </tr>
-  					</table>
-				</div>
+			<div id="results_div" class="table-responsive pre-scrollable">
+				<!-- maybe a search feature? -->
+				<table id="results_table" class="table">
+					<thead>
+						<tr>
+							<th style="width:25%">Username</th>
+							<th style="width:10%">Server</th>
+							<th style="width:10%">SR Rank</th>
+							<th style="width:10%">Role</th>
+							<th style="width:10%">Level</th>
+							<th style="width:10%">Platform</th>
+							<th style="width:10%">Microphone</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </body>
