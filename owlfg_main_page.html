@@ -1,125 +1,211 @@
 <!doctype html>
 <html>
-<head>
-<title>OWLFG</title>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="stylesheets/bootstrap.css"/>
-	<link rel="stylesheet" href="stylesheets/owlfg_styling.css"/>
-	<link rel="shortcut icon" href=""/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/owlfg.js"></script>
-</head>
-<body>
-    <!-- navigation bar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href ="#" class="navbar-brand">OverWatchLFG</a>
-				<button id="small-window-menu" class="navbar-toggle" data-toggle="collapse" data-target=".nav-data-collapsed" class="navbar-toggle collapsed">Menu <span class="caret"></span>
-				</button>
+	<head>
+	<title>OWLFG</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="stylesheets/bootstrap.css"/>
+		<link rel="stylesheet" href="stylesheets/owlfg_styling.css"/>
+		<link rel="shortcut icon" href=""/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/owlfg.js"></script>
+	</head>
+	<body>
+		<!-- navigation bar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href ="#" class="navbar-brand">OverWatchLFG</a>
+					<button id="small-window-menu" class="navbar-toggle" data-toggle="collapse" data-target=".nav-data-collapsed" class="navbar-toggle collapsed">Menu <span class="caret"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse nav-data-collapsed" style="height:auto">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+				</div>
 			</div>
-			<div class="collapse navbar-collapse nav-data-collapsed" style="height:auto">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-			</div>
-		</div>
-	</nav>
+		</nav>
+		<div id="page" class="container-fluid col-md-12">
+			<div id="under-menu"></div>
 
-	<div id="page" class="container-fluid col-md-12">
-		<div id="under-menu"></div>
-		<div id="preferences-menu" class="container-fluid col-md-4">
-			<h3>Preferences</h3>
-			<form>
-				<div class="form-group">
-					<label for="">Server</label>
-					<input type="" class="form-control" id="" placeholder="Server">
-				</div>
-				<div class="form-group">
-					<label for="">Language</label>
-					<input type="" class="form-control" id="" placeholder="Language">
-				</div>
-				<div class="form-group">
-					<label for="">SR Rank</label>
-					<input type="" class="form-control" id="" placeholder="SR Rank">
-				</div>
-				<div class="form-group">
-					<label for="">Role / Position</label>
-					<select class="form-control" id="">
-						<option value="" selected hidden>Select Role</option>
-    					<option>Offense</option>
-						<option>Defense</option>
-						<option>Tank</option>
-						<option>Support</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="">Level</label>
-					<input type="" class="form-control" id="" placeholder="Level">
-				</div>
-				<div class="form-group">
-					<label for="">Platform</label>
-					<select class="form-control" id="">
-						<option value="" selected hidden>Select Platform</option>
-    					<option>Xbox One</option>
-						<option>PS4</option>
-						<option>PC</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="">Group Size</label>
-					<select class="form-control" id="">
-						<option value="" selected hidden>Select Group Size</option>
-    					<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="">Microphone</label>
-    				<select class="form-control" id="">
-						<option value="" selected hidden>Select</option>
-    					<option>Yes</option>
-						<option>No</option>
-						<option>Any</option>
-					</select>
-  				</div>
-  				<div class ="form-group">
-				<button type="search" class="btn btn-default">Refine</button>
-				</div>
-			</form>
-		</div>
-		<div id="list_user" class="container-fluid col-md-8">
-			<button type="button" class="btn btn-default" id="list_me"><span class="glyphicon glyphicon-plus"></span> List me</a>
-		</div>
-		<div id="results" class="container-fluid col-md-8">
-			<h3>Results</h3>
-			<div id="results_div" class="table-responsive pre-scrollable">
-				<!-- maybe a search feature? -->
-				<table id="results_table" class="table">
-					<thead>
-						<tr>
-							<th style="width:25%">Username</th>
-							<th style="width:10%">Server</th>
-							<th style="width:10%">SR Rank</th>
-							<th style="width:10%">Role</th>
-							<th style="width:10%">Level</th>
-							<th style="width:10%">Platform</th>
-							<th style="width:10%">Microphone</th>
-						</tr>
-					</thead>
-					<tbody>
+			<!-- Preferences Div -->
+			<div id="preferences-menu" class="container-fluid col-md-4">
+				<h3>Preferences</h3>
+				<form>
+					<div class="form-group">
+						<label for="">Server</label>
+						<input type="" class="form-control" id="" placeholder="Server">
+					</div>
+					<div class="form-group">
+						<label for="">Language</label>
+						<input type="" class="form-control" id="" placeholder="Language">
+					</div>
+					<div class="form-group">
+						<label for="">SR Rank</label>
+						<input type="" class="form-control" id="" placeholder="SR Rank">
+					</div>
+					<div class="form-group">
+						<label for="">Role / Position</label>
+						<select class="form-control" id="">
+							<option value="" selected hidden>Select Role</option>
+							<option>Offense</option>
+							<option>Defense</option>
+							<option>Tank</option>
+							<option>Support</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="">Level</label>
+						<input type="" class="form-control" id="" placeholder="Level">
+					</div>
+					<div class="form-group">
+						<label for="">Platform</label>
+						<select class="form-control" id="">
+							<option value="" selected hidden>Select Platform</option>
+							<option>Xbox One</option>
+							<option>PS4</option>
+							<option>PC</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="">Group Size</label>
+						<select class="form-control" id="">
+							<option value="" selected hidden>Select Group Size</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="">Microphone</label>
+						<select class="form-control" id="">
+							<option value="" selected hidden>Select</option>
+							<option>Yes</option>
+							<option>No</option>
+							<option>Any</option>
+						</select>
+					</div>
+					<button type="search" class="btn btn-default" id="refine-button">Refine</button>
+				</form>
+			</div>
 
-					</tbody>
-				</table>
+			<!-- Add user Div -->
+			<div id="add-user" class="container-fluid col-md-8">
+				<button type="button" class="btn btn-info btn-lg" id="list-me" data-toggle="modal" data-target="#list-me-modal"><span class="glyphicon glyphicon-plus"></span>List me</button>
+			</div>
+			
+			<!--  Start of the Modal -->
+			<div id="list-me-modal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header" id="modal-form-header">
+							<button type="button" class="close" data-dismiss="modal" id="modal-exit">&times;</button>
+							<h4 class="modal-title">List Me</h4>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group" id="modal-form">
+									<label for="">Username</label>
+									<input type="" class="form-control" id="" placeholder="Username">
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Server</label>
+									<input type="" class="form-control" id="" placeholder="Server">
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Language</label>
+									<input type="" class="form-control" id="" placeholder="Language">
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">SR Rank</label>
+									<input type="" class="form-control" id="" placeholder="SR Rank">
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Role / Position</label>
+									<select class="form-control" id="">
+										<option value="" selected hidden>Select Role</option>
+										<option>Offense</option>
+										<option>Defense</option>
+										<option>Tank</option>
+										<option>Support</option>
+									</select>
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Level</label>
+									<input type="" class="form-control" id="" placeholder="Level">
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Platform</label>
+									<select class="form-control" id="">
+										<option value="" selected hidden>Select Platform</option>
+										<option>Xbox One</option>
+										<option>PS4</option>
+										<option>PC</option>
+									</select>
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Group Size</label>
+									<select class="form-control" id="">
+										<option value="" selected hidden>Select Group Size</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+									</select>
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="">Microphone</label>
+									<select class="form-control" id="">
+										<option value="" selected hidden>Select</option>
+										<option>Yes</option>
+										<option>No</option>>
+									</select>
+								</div>
+								<div class="form-group" id="modal-form">
+									<label for="comment">Contact Information:</label>
+									<textarea class="form-control" rows="3" id="Add contact information"></textarea>
+									</div>
+							</form>
+						</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" id="submit-to-database"data-dismiss="modal">Submit</button>
+							</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+
+			<!-- Results Div -->
+			<div id="results" class="container-fluid col-md-8">
+				<h3>Results</h3>
+				<div id="results-div" class="table-responsive pre-scrollable">
+					<!-- maybe a search feature? -->
+					<table id="results-table" class="table">
+						<thead>
+							<tr>
+								<th style="width:25%">Username</th>
+								<th style="width:10%">Server</th>
+								<th style="width:10%">SR Rank</th>
+								<th style="width:10%">Role</th>
+								<th style="width:10%">Level</th>
+								<th style="width:10%">Platform</th>
+								<th style="width:10%">Microphone</th>
+							</tr>
+						</thead>
+						<!-- Table Body is dynamic -->
+						<tbody></tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
+	</body>
 </html>
