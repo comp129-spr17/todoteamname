@@ -6754,4 +6754,8 @@ button.close {
     display: none !important;
   }
 }
+
+.btn-space {
+    margin-bottom: 5px;
+}
 /*# sourceMappingURL=bootstrap.css.map */
