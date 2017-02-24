@@ -112,31 +112,31 @@
 							<h4 class="modal-title">List Me</h4>
 						</div>
 						<div class="modal-body">
-							<form>
+							<form action="php/player_add.php" id="player-add-form" method="post">
 								<div class="form-group" id="modal-form">
 									<label for="">Username</label>
-									<input type="" class="form-control" id="" placeholder="Username">
+									<input type="" class="form-control" id="" placeholder="Username" name="username">
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Server</label>
-									<input type="" class="form-control" id="" placeholder="Server">
+									<input type="" class="form-control" id="" placeholder="Server" name="server">
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Language</label>
-									<input type="" class="form-control" id="" placeholder="Language">
+									<input type="" class="form-control" id="" placeholder="Language" name="lang">
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">SR Rank</label>
-									<input type="" class="form-control" id="" placeholder="SR Rank">
+									<input type="" class="form-control" id="" placeholder="SR Rank" name="sr">
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Role / Position</label>
-									<select class="form-control" id="">
+									<select class="form-control" id="" name="role">
 										<option value="" selected hidden>Select Role</option>
-										<option>Offense</option>
-										<option>Defense</option>
-										<option>Tank</option>
-										<option>Support</option>
+										<option value="off">Offense</option>
+										<option value="def">Defense</option>
+										<option value="tnk">Tank</option>
+										<option value="sup">Support</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
@@ -145,41 +145,41 @@
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Platform</label>
-									<select class="form-control" id="">
+									<select class="form-control" id="" name="platform">
 										<option value="" selected hidden>Select Platform</option>
-										<option>Xbox One</option>
-										<option>PS4</option>
-										<option>PC</option>
+										<option value="xb">Xbox One</option>
+										<option value="ps">PS4</option>
+										<option value="pc">PC</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Group Size</label>
-									<select class="form-control" id="">
+									<select class="form-control" id="" name="group">
 										<option value="" selected hidden>Select Group Size</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Microphone</label>
-									<select class="form-control" id="">
+									<select class="form-control" id="" name="mic">
 										<option value="" selected hidden>Select</option>
-										<option>Yes</option>
-										<option>No</option>>
+										<option value="y">Yes</option>
+										<option value="n">No</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="comment">Contact Information:</label>
-									<textarea class="form-control" rows="3" id="Add contact information"></textarea>
+									<textarea class="form-control" rows="3" id="Add contact information" name="contact" form="player-add-form"></textarea>
 									</div>
 							</form>
 						</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" id="submit-to-database"data-dismiss="modal">Submit</button>
+								<button type="submit" class="btn btn-default" id="submit-to-database"data-dismiss="modal" form="player-add-form">Submit</button>
 							</div>
 					</div>
 				</div>
