@@ -18,6 +18,7 @@
 <body>
 
 <div style="width:1000px;margin: auto;">
+<h1>TEST page for submitting</h1>
 <p>USERNAME: <?php echo $_POST['username']; ?></p>
 <p>SERVER: <?php echo $_POST['server']; ?></p>
 <p>LANGUAGE: <?php echo $_POST['lang']; ?></p>
@@ -26,6 +27,7 @@
 <p>PLATFORM: <?php echo $_POST['platform']; ?></p>
 <p>GROUP SIZE: <?php echo $_POST['group']; ?></p>
 <p>MICRO: <?php echo $_POST['mic']; ?></p>
+<p>CONTACT: <?php echo $_POST['contact']; ?></p>
 </div>
 
 </body>
