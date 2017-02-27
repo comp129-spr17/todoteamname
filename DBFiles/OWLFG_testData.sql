@@ -1,1 +1,3 @@
-INSERT INTO Players VALUES('', '', '', '', '', '', '');
+INSERT INTO Players VALUES('0', 'squareplanet', 'cute girls hmu', 'USA', 'PC', '2', 'ENG', '2454', 'TRUE', 'TANK', 'TRUE', '201', 'TRUE', '2017-02-26 21-20-40');
+INSERT INTO Players VALUES('1', 'eravir', 'hanjo main', 'USA', 'PC', '2', 'ENG', '2126', 'TRUE', 'SUPPORT', 'TRUE', '206', 'TRUE', '2017-02-26 21-48-40');
+INSERT INTO Players VALUES('2', 'alexicat', 'somebody once told me....', 'USA', 'PC', '1', 'ENG', '2270', 'TRUE', 'SUPPORT', 'TRUE', '255', 'TRUE', '2017-03-26 21-46-40');
