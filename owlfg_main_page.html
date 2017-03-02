@@ -25,6 +25,7 @@
 						<li class="active"><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Contact</a></li>
+					</ul>
 				</div>
 			</div>
 		</nav>
@@ -34,61 +35,61 @@
 			<!-- Preferences Div -->
 			<div id="preferences-menu" class="container-fluid col-md-4">
 				<h3>Preferences</h3>
-				<form>
+				<form action="php/filter_players.php" id="filter-player-form" method="post">
 					<div class="form-group">
 						<label for="">Server</label>
-						<input type="" class="form-control" id="" placeholder="Server">
+						<input type="" class="form-control" id="" placeholder="Server" name="server_f">
 					</div>
 					<div class="form-group">
 						<label for="">Language</label>
-						<input type="" class="form-control" id="" placeholder="Language">
+						<input type="" class="form-control" id="" placeholder="Language" name="language_f">
 					</div>
 					<div class="form-group">
 						<label for="">SR Rank</label>
-						<input type="" class="form-control" id="" placeholder="SR Rank">
+						<input type="" class="form-control" id="" placeholder="SR Rank" name="sr_f">
 					</div>
 					<div class="form-group">
 						<label for="">Role / Position</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="role_f">
 							<option value="" selected hidden>Select Role</option>
-							<option>Offense</option>
-							<option>Defense</option>
-							<option>Tank</option>
-							<option>Support</option>
+							<option value="offense">Offense</option>
+							<option value="defense">Defense</option>
+							<option value="tank">Tank</option>
+							<option value="support">Support</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">Level</label>
-						<input type="" class="form-control" id="" placeholder="Level">
+						<input type="" class="form-control" id="" placeholder="Level" name="level_f">
 					</div>
 					<div class="form-group">
 						<label for="">Platform</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="platform_f">
 							<option value="" selected hidden>Select Platform</option>
-							<option>Xbox One</option>
-							<option>PS4</option>
-							<option>PC</option>
+							<option value="xbone">Xbox One</option>
+							<option value="ps4">PS4</option>
+							<option value="pc">PC</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">Group Size</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="gSize_f">
 							<option value="" selected hidden>Select Group Size</option>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">Microphone</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="mic_f">
 							<option value="" selected hidden>Select</option>
-							<option>Yes</option>
-							<option>No</option>
-							<option>Any</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+							<option value="any">Any</option>
 						</select>
 					</div>
 					<div class = "form-group">
@@ -112,75 +113,107 @@
 							<h4 class="modal-title">List Me</h4>
 						</div>
 						<div class="modal-body">
-							<form>
+							<form action="php/player_add.php" id="player-add-form" method="post">
 								<div class="form-group" id="modal-form">
 									<label for="">Username</label>
-									<input type="" class="form-control" id="" placeholder="Username">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="" 
+                                        placeholder="Username" 
+                                        name="username" 
+                                    >
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Server</label>
-									<input type="" class="form-control" id="" placeholder="Server">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="" 
+                                        placeholder="Server" 
+                                        name="server"
+                                    >
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Language</label>
-									<input type="" class="form-control" id="" placeholder="Language">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="" 
+                                        placeholder="Language" 
+                                        name="lang"
+                                    >
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">SR Rank</label>
-									<input type="" class="form-control" id="" placeholder="SR Rank">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="" 
+                                        placeholder="SR Rank" 
+                                        name="sr"
+                                        pattern="[0-9]{1,4}"
+                                    >
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Role / Position</label>
-									<select class="form-control" id="">
-										<option value="" selected hidden>Select Role</option>
-										<option>Offense</option>
-										<option>Defense</option>
-										<option>Tank</option>
-										<option>Support</option>
+									<select class="form-control" id="" name="role">
+										<option value="default" selected hidden>Select Role</option>
+										<option value="offense">Offense</option>
+										<option value="defense">Defense</option>
+										<option value="tank">Tank</option>
+										<option value="support">Support</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Level</label>
-									<input type="" class="form-control" id="" placeholder="Level">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="" 
+                                        placeholder="Level" 
+                                        name="level"
+                                        pattern="[0-9]{1,4}"
+                                    >
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Platform</label>
-									<select class="form-control" id="">
-										<option value="" selected hidden>Select Platform</option>
-										<option>Xbox One</option>
-										<option>PS4</option>
-										<option>PC</option>
+									<select class="form-control" id="" name="platform">
+										<option value="def" selected hidden>Select Platform</option>
+										<option value="xbox">Xbox One</option>
+										<option value="ps4">PS4</option>
+										<option value="pc">PC</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Group Size</label>
-									<select class="form-control" id="">
-										<option value="" selected hidden>Select Group Size</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
+									<select class="form-control" id="" name="group">
+										<option value="-1" selected hidden>Select Group Size</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="">Microphone</label>
-									<select class="form-control" id="">
-										<option value="" selected hidden>Select</option>
-										<option>Yes</option>
-										<option>No</option>>
+									<select class="form-control" id="" name="mic">
+										<option value="9" selected hidden>Select</option>
+										<option value="1">Yes</option>
+										<option value="0">No</option>
 									</select>
 								</div>
 								<div class="form-group" id="modal-form">
 									<label for="comment">Contact Information:</label>
-									<textarea class="form-control" rows="3" id="Add contact information"></textarea>
-									</div>
+									<textarea class="form-control" rows="3" id="Add contact information" name="contact" form="player-add-form"></textarea>
+								</div>
 							</form>
 						</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" id="submit-to-database"data-dismiss="modal">Submit</button>
-							</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" id="submit-to-database" data-dismiss="modal">Submit</button>
+						</div>
 					</div>
 				</div>
 			</div>
