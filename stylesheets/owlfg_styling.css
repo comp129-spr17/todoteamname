@@ -88,7 +88,7 @@ body {
 
 #results {
     float: right;
-    height: 85%;
+    min-height: 85%;
     width: 75%;
     border-style: solid;
     border-width: 1px;
@@ -136,3 +136,6 @@ td {
     text-align: left;
 }
 
+.container{
+    min-height: 85%;
+}
