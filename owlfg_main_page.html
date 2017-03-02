@@ -35,61 +35,61 @@
 			<!-- Preferences Div -->
 			<div id="preferences-menu" class="container-fluid col-md-4">
 				<h3>Preferences</h3>
-				<form>
+				<form action="php/filter_players.php" id="filter-player-form" method="post">
 					<div class="form-group">
 						<label for="">Server</label>
-						<input type="" class="form-control" id="" placeholder="Server">
+						<input type="" class="form-control" id="" placeholder="Server" name="server_f">
 					</div>
 					<div class="form-group">
 						<label for="">Language</label>
-						<input type="" class="form-control" id="" placeholder="Language">
+						<input type="" class="form-control" id="" placeholder="Language" name="language_f">
 					</div>
 					<div class="form-group">
 						<label for="">SR Rank</label>
-						<input type="" class="form-control" id="" placeholder="SR Rank">
+						<input type="" class="form-control" id="" placeholder="SR Rank" name="sr_f">
 					</div>
 					<div class="form-group">
 						<label for="">Role / Position</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="role_f">
 							<option value="" selected hidden>Select Role</option>
-							<option>Offense</option>
-							<option>Defense</option>
-							<option>Tank</option>
-							<option>Support</option>
+							<option value="offense">Offense</option>
+							<option value="defense">Defense</option>
+							<option value="tank">Tank</option>
+							<option value="support">Support</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">Level</label>
-						<input type="" class="form-control" id="" placeholder="Level">
+						<input type="" class="form-control" id="" placeholder="Level" name="level_f">
 					</div>
 					<div class="form-group">
 						<label for="">Platform</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="platform_f">
 							<option value="" selected hidden>Select Platform</option>
-							<option>Xbox One</option>
-							<option>PS4</option>
-							<option>PC</option>
+							<option value="xbone">Xbox One</option>
+							<option value="ps4">PS4</option>
+							<option value="pc">PC</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">Group Size</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="gSize_f">
 							<option value="" selected hidden>Select Group Size</option>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="">Microphone</label>
-						<select class="form-control" id="">
+						<select class="form-control" id="" name="mic_f">
 							<option value="" selected hidden>Select</option>
-							<option>Yes</option>
-							<option>No</option>
-							<option>Any</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+							<option value="any">Any</option>
 						</select>
 					</div>
 					<div class = "form-group">
