@@ -14,6 +14,9 @@ include_once("playerdb.php"); // $playerdb
 
 // validation for everything will be done lter
 // for now, validation for sr and level is on the form itself
+//$cookie_values
+//setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
+
 
 if(isset($_POST['username'])
     && isset($_POST['server'])
@@ -28,6 +31,7 @@ if(isset($_POST['username'])
     // check if everything has a value
     // now we can do an insert
 
+	
     // but first turn some of the data into ints
     $groupsize = (int)$_POST['group'];
     $seasonrank = (int)$_POST['sr'];
@@ -44,8 +48,9 @@ if(isset($_POST['username'])
     $values = $values.$_POST['server']."','".$_POST['platform']."',";
     $values = $values.$groupsize.",'".$_POST['lang']."',".$seasonrank.",";
     $values = $values.$hasmic.",'".$_POST['role']."',".$level;
-
-    $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
+	//save values to cookie
+	//$cookie_values = $values
+    //$sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
     $query = $playerdb->prepare($sql);
     $query->execute();
 
@@ -53,7 +58,16 @@ if(isset($_POST['username'])
     //  actually maybe just a session variable that notifies main page about
     //  data insert.
     header("Location:../");
-}
+}/*else{
+	if(!isset($_COOKIE[$cookie_values])) {
+		//if values is saved in a cookie use $cookie_values
+		$fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
+		$fields = $fields."HasMicrophone,Role,Level";
+		$sql = "INSERT INTO Players(".$fields.") VALUES(".$cookie_values.")";
+		$query = $playerdb->prepare($sql);
+		$query->execute();
+	}
+}*/
 
 ?>
 <?php
