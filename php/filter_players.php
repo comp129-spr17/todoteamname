@@ -12,6 +12,8 @@
  */
 
 include_once("playerdb.php"); // $playerdb
+$cookie_condition
+setcookie($cookie_condition time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
 // Get data from POST
 $server = $_POST['server_f'];
@@ -51,10 +53,27 @@ Platform = '" .$platform. "' AND
 GroupSize = '" .$gSize. "' AND
 HasMicrophone = '" .$mic . "'";
 
+//check if any data is entered
+if(isset($_POST['server_f']) || 
+	isset($_POST['language_f']) ||
+	isset($_POST['sr_f']) ||
+	isset($_POST['role_f']) ||
+	isset($_POST['level_f']) ||
+	isset($_POST['platform_f']) ||
+	isset($_POST['gSize_f']) ||
+	isset($_POST['mic_f'])
+){//do nothing}else{
+//add cookie to condition
+$condition = $cookie_condition
+}
+
 // Code to actually execute the query on the database
 $sql = "SELECT DISTINCT " .$data. " FROM Players WHERE " . $condition;
 $query = $playerdb->prepare($sql);
 $query->execute();
+
+//save condition to cookie
+$cookie_condition = $condition
 
 // Get all of the returned rows
 $rows = $query->fetchAll();
