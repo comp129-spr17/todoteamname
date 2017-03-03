@@ -39,12 +39,13 @@ if(isset($_POST['username'])
     //    $ismature = (int)$_POST[' this isnt here what
     //    neither is $iscomp
     $level = (int)$_POST['level'];
+    $contactclean = str_replace("'", "''", $_POST['contact']);
 
     $fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
     $fields = $fields."HasMicrophone,Role,Level";
     //    $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
     //     we dont have two fields
-    $values = "'".$_POST['username']."','".$_POST['contact']."','";
+    $values = "'".$_POST['username']."','".$contactclean."','";
     $values = $values.$_POST['server']."','".$_POST['platform']."',";
     $values = $values.$groupsize.",'".$_POST['lang']."',".$seasonrank.",";
     $values = $values.$hasmic.",'".$_POST['role']."',".$level;
