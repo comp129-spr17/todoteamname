@@ -50,7 +50,7 @@ if(isset($_POST['username'])
     $values = $values.$hasmic.",'".$_POST['role']."',".$level;
 	//save values to cookie
 	//$cookie_values = $values
-    $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
+    //$sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
     $query = $playerdb->prepare($sql);
     $query->execute();
 
