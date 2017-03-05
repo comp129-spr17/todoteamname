@@ -13,7 +13,7 @@ $(document).ready(function(){
 // On page load, the entire database contents are inserted into the results
 // table by getting the JSON data from get_player_data.php
 $(window).on("load", function() {
-    $.getJSON('get_player_data.php', function(players) {
+    $.getJSON('/php/get_player_data.php', function(players) {
         $.each(players, function(key, val) {
             var start_row='<tr id="found-player">';
             var name='<td style=width:25%>'+ val.Name +'</td>';
