@@ -38,7 +38,7 @@ if (isset($_POST['server_f']) &&
 	$role = $_POST['role_f'];
 	$level = (int)$_POST['level_f'];
 	$platform = $_POST['platform_f'];
-	$gSize = (int)$_POST['gSize_f'];
+	//$gSize = (int)$_POST['gSize_f'];
 	$mic = $_POST['mic_f'];
 
 	// What to get from players
@@ -66,7 +66,6 @@ if (isset($_POST['server_f']) &&
 	(Level <= " .($level + 50). " OR
 	Level >= " .($level - 50). ") AND
 	Platform = '" .$platform. "' AND
-	GroupSize = '" .$gSize. "' AND
 	HasMicrophone = '" .$mic . "'";
 }
 else{
