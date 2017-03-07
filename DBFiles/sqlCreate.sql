@@ -21,5 +21,5 @@ Role 					VARCHAR(7)		NOT NULL,
 IsMature 				BOOLEAN			NOT NULL,
 Level 					INTEGER			NOT NULL,
 IsCompetitive 			BOOLEAN			NOT NULL,
-creationTime			TIMESTAMP		,
+creationTime			TIMESTAMP		
 );

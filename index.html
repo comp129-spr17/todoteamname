@@ -10,6 +10,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/owlfg.js"></script>
+		<script type="text/javascript" src="js/filter.js"></script>
 	</head>
 	<body>
 		<!-- navigation bar -->
@@ -35,7 +36,7 @@
 			<!-- Preferences Div -->
 			<div id="preferences-menu" class="container-fluid col-md-4">
 				<h3>Preferences</h3>
-				<form action="php/filter_players.php" id="filter-player-form" method="post">
+				<form id="filter-player-form" method="post">
 					<div class="form-group">
 						<label for="">Server</label>
 						<input type="" class="form-control" id="" placeholder="Server" name="server_f">
@@ -92,8 +93,8 @@
 							<option value="any">Any</option>
 						</select>
 					</div>
-					<div class = "form-group">
-					<button type="search" class="btn btn-default" id="refine-button">Refine</button>
+					<div class = "form-group text-center" >
+					<a class="btn btn-primary btn-lg" id="refine-button" onclick="filter()">Refine</a>
 					</div>
 				</form>
 			</div>
