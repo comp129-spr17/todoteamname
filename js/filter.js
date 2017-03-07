@@ -1,5 +1,5 @@
 function filter(){
-	$.post('/OWLFG/php/get_player_data.php', $('form').serializeArray(), function(players) {
+	$.post('/php/get_player_data.php', $('form').serializeArray(), function(players) {
 		$("#results-table tbody tr").remove();
         $.each(players, function(key, val) {
             var start_row='<tr id="found-player">';
