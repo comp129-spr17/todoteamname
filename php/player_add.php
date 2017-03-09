@@ -26,11 +26,9 @@ if(isset($_POST['username'])
     && isset($_POST['platform'])
     && isset($_POST['group'])
     && isset($_POST['role'])
-    && isset($_POST['mic'])
     && isset($_POST['contact'])){
     // check if everything has a value
     // now we can do an insert
-
 	
     // but first turn some of the data into ints
     $groupsize = (int)$_POST['group'];
@@ -40,14 +38,40 @@ if(isset($_POST['username'])
     //    neither is $iscomp
     $level = (int)$_POST['level'];
 
+    // first do fields
     $fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
-    $fields = $fields."HasMicrophone,Role,Level";
-    //    $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
-    //     we dont have two fields
+    $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
+
+    // now to do values
     $values = "'".$_POST['username']."','".$_POST['contact']."','";
     $values = $values.$_POST['server']."','".$_POST['platform']."',";
     $values = $values.$groupsize.",'".$_POST['lang']."',".$seasonrank.",";
-    $values = $values.$hasmic.",'".$_POST['role']."',".$level;
+
+    // check for mic
+    if(isset($_POST['mic'])){
+        $values = $values."TRUE,";
+    }else{
+        $values = $values."FALSE,";
+    }
+        
+    $values = $values."'".$_POST['role']."',";
+
+    // check for maturity
+    if(isset($_POST['mat'])){
+        $values = $values."TRUE,";
+    }else{
+        $values = $values."FALSE,";
+    }
+
+    $values = $values.$level.",";
+
+    // check for comp
+    if(isset($_POST['comp'])){
+        $values = $values."TRUE";
+    }else{
+        $values = $values."FALSE";
+    }
+
 	//save values to cookie
 	//$cookie_values = $values
     $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
