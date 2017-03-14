@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="js/filter.js"></script>
 	</head>
 	<body>
-		<!-- navigation bar -->
+<!-- navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -33,11 +33,11 @@
 		<div id="page" class="container-fluid col-md-12">
 		
 			<div id="under-menu"></div>
-			<!-- Preferences Div -->
+	<!-- Preferences Div -->
 			<div id="preferences-menu" class="container-fluid col-md-4">
 				<h3>Preferences</h3>
 				<form id="filter-player-form" method="post">
-				<!--**************************************Server drop down*************************************************-->
+				<!--Server drop down-->
 					<div class="form-group">
 						<label for="">Server</label>
 						<select class="form-control" id="" name="server_f">
@@ -47,7 +47,7 @@
 							<option value="EU">EU</option>
 						</select>
 					</div>
-				<!--**************************************Language drop down************************************************-->
+				<!--Language drop down-->
 					<div class="form-group">
 						<label for="">Language</label>
 						<select class="form-control" id="" name="language_f">
@@ -57,13 +57,12 @@
 							<option value="Spanish">Spanish</option>
 						</select>
 					</div>
-				<!--**************************************************************************************************-->
+				<!--SR Rank-->
 					<div class="form-group">
 						<label for="">SR Rank</label>
 						<input type="" class="form-control" id="" placeholder="SR Rank" name="sr_f">
 					</div>
-
-
+				<!--Role Dropdown-->
 					<div class="form-group">
 						<label for="">Role / Position</label>
 						<select class="form-control" id="" name=" role_f ">
@@ -74,14 +73,12 @@
 							<option value="Support">Support</option>
 						</select>
 					</div>
-
-
+				<!--Level Dropdown-->
 					<div class="form-group">
 						<label for="">Level</label>
 						<input type="" class="form-control" id="" placeholder="Level" name="level_f">
 					</div>
-
-
+				<!--Platform Dropdown-->
 					<div class="form-group">
 						<label for="">Platform</label>
 						<select class="form-control" id="" name="platform_f">
@@ -91,7 +88,6 @@
 							<option value="PC">PC</option>
 						</select>
 					</div>
-
 					<!--
 					<div class="form-group">
 						<label for="">Group Size</label>
@@ -106,7 +102,7 @@
 						</select>
 					</div>
 					-->
-					
+				<!--Mic Dropdown-->
 					<div class="form-group">
 						<label for="">Microphone</label>
 						<select class="form-control" id="" name="mic_f">
@@ -116,9 +112,7 @@
 							<option value="any">Any</option>
 						</select>
 					</div>
-					
-
-				<!--******************************************isCompetitive********************************************************-->
+				<!--Is Competitive Button-->
 					<div class="form-group">
 						<label for="">Competitive</label>
 						<select class="form-control" id="" name="iscompetitive_f">
@@ -127,14 +121,7 @@
 							<option value="No">No</option>
 						</select>
 					</div>
-
-
-
-
-
-
-
-				<!--******************************************isCompetitive********************************************************-->
+				<!--Is Mature Button-->
 					<div class="form-group">
 						<label for="">Mature</label>
 						<select class="form-control" id="" name="ismature_f">
@@ -144,19 +131,13 @@
 						</select>
 					</div>
 
-
-
-
-
-
-
 					<div class = "form-group text-center" >
 					<a class="btn btn-primary btn-lg" id="refine-button" onclick="filter()">Refine</a>
 					</div>
 				</form>
 			</div>
 
-			<!-- Add user Div -->
+	<!-- Add user Div -->
 			<div id="add-user" class="container-fluid col-md-8">
 				<button type="button" class="btn btn-info btn-lg" id="list-me" data-toggle="modal" data-target="#list-me-modal"><span class="glyphicon glyphicon-plus"></span>List me</button>
 			</div>
@@ -172,7 +153,7 @@
 						</div>
 						<div class="modal-body">
 							<form action="php/player_add.php" id="player-add-form" method="post">
-					<!--**************************************************************************************************-->
+							<!--Username-->
 								<div class="form-group" id="modal-form">
 									<label for="">Username</label>
 									<input 
@@ -183,10 +164,7 @@
                                         name="username" 
                                     >
 								</div>
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Server-->
 								<div class="form-group" id="modal-form">
 									<label for="">Server</label>
 									<input 
@@ -197,9 +175,7 @@
                                         name="server"
                                     >
 								</div>
-
-
-					<!--**************************************************************************************************-->
+							<!--Language-->
 								<div class="form-group" id="modal-form">
 									<label for="">Language</label>
 									<input 
@@ -210,11 +186,7 @@
                                         name="lang"
                                     >
 								</div>
-
-
-
-
-					<!--**************************************************************************************************-->
+							<!--SR rank-->
 								<div class="form-group" id="modal-form">
 									<label for="">SR Rank</label>
 									<input 
@@ -226,10 +198,7 @@
                                         pattern="[0-9]{1,4}"
                                     >
 								</div>
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Role-->
 								<div class="form-group" id="modal-form">
 									<label for="">Role / Position</label>
 									<select class="form-control" id="" name="role">
@@ -240,10 +209,7 @@
 										<option value="Support">Support</option>
 									</select>
 								</div>
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Level-->
 								<div class="form-group" id="modal-form">
 									<label for="">Level</label>
 									<input 
@@ -255,11 +221,7 @@
                                         pattern="[0-9]{1,4}"
                                     >
 								</div>
-
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Platform-->
 								<div class="form-group" id="modal-form">
 									<label for="">Platform</label>
 									<select class="form-control" id="" name="platform">
@@ -269,13 +231,7 @@
 										<option value="PC">PC</option>
 									</select>
 								</div>
-
-
-
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Group Size-->
 								<div class="form-group" id="modal-form">
 									<label for="">Group Size</label>
 									<select class="form-control" id="" name="group">
@@ -288,41 +244,33 @@
 										<option value="6">6</option>
 									</select>
 								</div>
-
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Microphone-->
 								<div class="checkbox" id="modal-form" name="mic">
 									<label><input 
                                         name ="mic"
                                         type ="checkbox" value = "">Microphone</label>
 								</div>
 
-					<!--**************************************************************************************************-->
+							<!--Competitive-->
 								<div class="checkbox" id="modal-form" name="iscompetitive">
 									<label><input 
                                         name = "comp"
                                         type ="checkbox" value = "">Competitive</label>	
 								</div>
-
-
-
-					<!--**************************************************************************************************-->
+							<!--Mature-->
 								<div class="checkbox" id="modal-form" name="ismature">
 									<label><input 
                                         name = "mat"
                                         type ="checkbox" value = "">Mature</label>
-									
 								</div>
-
-					<!--**************************************************************************************************-->
+							<!--Contact Info-->
 								<div class="form-group" id="modal-form">
 									<label for="comment">Contact Information:</label>
 									<textarea class="form-control" rows="3" id="Add contact information" name="contact" form="player-add-form"></textarea>
 								</div>
 							</form>
 						</div>
+
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" id="submit-to-database" data-dismiss="modal">Submit</button>
 						</div>
