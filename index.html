@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="stylesheets/bootstrap.css"/>
 		<link rel="stylesheet" href="stylesheets/owlfg_styling.css"/>
+		<link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="shortcut icon" href=""/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
@@ -42,9 +43,9 @@
 						<label for="">Server</label>
 						<select class="form-control" id="" name="server_f">
 							<option value="" selected hidden>Select Server</option>
-							<option value="USA">USA</option>
-							<option value="Asia">Asia</option>
+							<option value="NA">NA</option>
 							<option value="EU">EU</option>
+							<option value="AS">AS</option>
 						</select>
 					</div>
 				<!--Language drop down-->
@@ -53,8 +54,18 @@
 						<select class="form-control" id="" name="language_f">
 							<option value="" selected hidden>Select Language</option>
 							<option value="English">English</option>
-							<option value="Chinese">Chinese</option>
-							<option value="Spanish">Spanish</option>
+							<option value="Español(AU)">Español(AU)</option>
+							<option value="Español(EL)">Español(EL)</option>
+							<option value="Italiano">Italiano</option>
+							<option value="Русский">Русский</option>
+							<option value="Polski">Polski</option>
+							<option value="Français">Français</option>
+							<option value="Deutsch">Deutsch</option>
+							<option value="Português">Português</option>
+							<option value="日本語">日本語</option>
+							<option value="한국어">한국어</option>
+							<option value="简体中文">简体中文</option>
+							<option value="繁體中文">繁體中文</option>
 						</select>
 					</div>
 				<!--SR Rank-->
@@ -65,10 +76,9 @@
 				<!--Role Dropdown-->
 					<div class="form-group">
 						<label for="">Role / Position</label>
-						<select class="form-control" id="" name=" role_f ">
+						<select class="form-control" id="" name="role_f">
 							<option value="" selected hidden>Select Role</option>
-							<option value="Offense">Offense</option>
-							<option value="Defense">Defense</option>
+							<option value="DPS">DPS</option>
 							<option value="Tank">Tank</option>
 							<option value="Support">Support</option>
 						</select>
@@ -102,33 +112,23 @@
 						</select>
 					</div>
 					-->
-				<!--Mic Dropdown-->
-					<div class="form-group">
-						<label for="">Microphone</label>
-						<select class="form-control" id="" name="mic_f">
-							<option value="" selected hidden>Select</option>
-							<option value="1">Yes</option>
-							<option value="0">No</option>
-							<option value="any">Any</option>
-						</select>
+				<!--Mic-->
+					<div class="checkbox" id="modal-form" name="mic_f">
+						<label><input 
+                                     name ="mic_f"
+                                     type ="checkbox" value="TRUE">Microphone</label>
 					</div>
 				<!--Is Competitive Button-->
-					<div class="form-group">
-						<label for="">Competitive</label>
-						<select class="form-control" id="" name="iscompetitive_f">
-							<option value="" selected hidden>Select</option>
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>
-						</select>
+					<div class="checkbox" id="modal-form" name="iscompetitive_f">
+						<label><input 
+                                     name = "comp_f"
+                                     type ="checkbox" value="TRUE">Competitive</label>	
 					</div>
 				<!--Is Mature Button-->
-					<div class="form-group">
-						<label for="">Mature</label>
-						<select class="form-control" id="" name="ismature_f">
-							<option value="" selected hidden>Select</option>
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>
-						</select>
+					<div class="checkbox" id="modal-form" name="ismature_f">
+						<label><input 
+                                     name = "mat_f"
+                                     type ="checkbox" value="TRUE">Mature</label>
 					</div>
 
 					<div class = "form-group text-center" >
@@ -167,24 +167,32 @@
 							<!--Server-->
 								<div class="form-group" id="modal-form">
 									<label for="">Server</label>
-									<input 
-                                        type="" 
-                                        class="form-control" 
-                                        id="" 
-                                        placeholder="Server" 
-                                        name="server"
-                                    >
+									<select class="form-control" id="" name="server">
+										<option value="" selected hidden>Select Server</option>
+										<option value="NA">NA</option>
+										<option value="EU">EU</option>
+										<option value="AS">AS</option>
+									</select>
 								</div>
 							<!--Language-->
 								<div class="form-group" id="modal-form">
 									<label for="">Language</label>
-									<input 
-                                        type="" 
-                                        class="form-control" 
-                                        id="" 
-                                        placeholder="Language" 
-                                        name="lang"
-                                    >
+									<select class="form-control" id="" name="language">
+										<option value="" selected hidden>Select Language</option>
+										<option value="English">English</option>
+										<option value="Español(AU)">Español(AU)</option>
+										<option value="Español(EL)">Español(EL)</option>
+										<option value="Italiano">Italiano</option>
+										<option value="Русский">Русский</option>
+										<option value="Polski">Polski</option>
+										<option value="Français">Français</option>
+										<option value="Deutsch">Deutsch</option>
+										<option value="Português">Português</option>
+										<option value="日本語">日本語</option>
+										<option value="한국어">한국어</option>
+										<option value="简体中文">简体中文</option>
+										<option value="繁體中文">繁體中文</option>
+									</select>
 								</div>
 							<!--SR rank-->
 								<div class="form-group" id="modal-form">
@@ -203,8 +211,7 @@
 									<label for="">Role / Position</label>
 									<select class="form-control" id="" name="role">
 										<option value="" selected hidden>Select Role</option>
-										<option value="Offense">Offense</option>
-										<option value="Defense">Defense</option>
+										<option value="DPS">DPS</option>
 										<option value="Tank">Tank</option>
 										<option value="Support">Support</option>
 									</select>
@@ -232,10 +239,10 @@
 									</select>
 								</div>
 							<!--Group Size-->
-								<div class="form-group" id="modal-form">
+<!-- 								<div class="form-group" id="modal-form">
 									<label for="">Group Size</label>
 									<select class="form-control" id="" name="group">
-										<option value="-1" selected hidden>Select Group Size</option>
+										<option value="" selected hidden>Select Group Size</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -243,25 +250,25 @@
 										<option value="5">5</option>
 										<option value="6">6</option>
 									</select>
-								</div>
+								</div> -->
 							<!--Microphone-->
 								<div class="checkbox" id="modal-form" name="mic">
 									<label><input 
                                         name ="mic"
-                                        type ="checkbox" value = "">Microphone</label>
+                                        type ="checkbox" value="TRUE">Microphone</label>
 								</div>
 
 							<!--Competitive-->
 								<div class="checkbox" id="modal-form" name="iscompetitive">
 									<label><input 
                                         name = "comp"
-                                        type ="checkbox" value = "">Competitive</label>	
+                                        type ="checkbox" value="TRUE">Competitive</label>	
 								</div>
 							<!--Mature-->
 								<div class="checkbox" id="modal-form" name="ismature">
 									<label><input 
                                         name = "mat"
-                                        type ="checkbox" value = "">Mature</label>
+                                        type ="checkbox" value="TRUE">Mature</label>
 								</div>
 							<!--Contact Info-->
 								<div class="form-group" id="modal-form">
@@ -293,6 +300,9 @@
 								<th style="width:10%">Role</th>
 								<th style="width:10%">Level</th>
 								<th style="width:10%">Platform</th>
+								<th style="width:10%">Language</th>
+								<th style="width:10%">Mature?</th>
+								<th style="width:10%">Casual/Comp</th>
 								<th style="width:10%">Microphone</th>
 							</tr>
 						</thead>

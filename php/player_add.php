@@ -17,21 +17,18 @@ include_once("playerdb.php"); // $playerdb
 //$cookie_values
 //setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
-
 if(isset($_POST['username'])
     && isset($_POST['server'])
-    && isset($_POST['lang'])
+    && isset($_POST['language'])
     && isset($_POST['sr'])
     && isset($_POST['level'])
     && isset($_POST['platform'])
-    && isset($_POST['group'])
-    && isset($_POST['role'])
-    && isset($_POST['contact'])){
+    && isset($_POST['role'])){
     // check if everything has a value
     // now we can do an insert
 	
     // but first turn some of the data into ints
-    $groupsize = (int)$_POST['group'];
+    //$groupsize = (int)$_POST['group'];
     $seasonrank = (int)$_POST['sr'];
     $hasmic = (int)$_POST['mic'];
     //    $ismature = (int)$_POST[' this isnt here what
@@ -39,19 +36,19 @@ if(isset($_POST['username'])
     $level = (int)$_POST['level'];
 
     // first do fields
-    $fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
+    $fields = "Name,Info,Server,Platform,Language,SeasonRank,";
     $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
 
     // now to do values
     $values = "'".$_POST['username']."','".$_POST['contact']."','";
     $values = $values.$_POST['server']."','".$_POST['platform']."',";
-    $values = $values.$groupsize.",'".$_POST['lang']."',".$seasonrank.",";
+    $values = $values."'".$_POST['language']."',".$seasonrank;
 
     // check for mic
     if(isset($_POST['mic'])){
-        $values = $values."TRUE,";
+        $values = $values.",TRUE,";
     }else{
-        $values = $values."FALSE,";
+        $values = $values.",FALSE,";
     }
         
     $values = $values."'".$_POST['role']."',";
