@@ -45,7 +45,7 @@
 					<div class="form-group">
 						<label for="">Server</label>
 						<select class="form-control" id="" name="server_f">
-							<option value="" selected hidden>Select Server</option>
+							<option value="" selected>Select Server</option>
 							<option value="NA">NA</option>
 							<option value="EU">EU</option>
 							<option value="AS">AS</option>
@@ -55,7 +55,7 @@
 					<div class="form-group">
 						<label for="">Language</label>
 						<select class="form-control" id="" name="language_f">
-							<option value="" selected hidden>Select Language</option>
+							<option value="" selected>Select Language</option>
 							<option value="English">English</option>
 							<option value="Español(AU)">Español(AU)</option>
 							<option value="Español(EL)">Español(EL)</option>
@@ -77,8 +77,8 @@
 						<input id="sr-slide" 
 						data-slider-id='input-slider' 
 						type="text" data-slider-min="0" 
-						data-slider-max="5000" data-slider-step="10" 
-						data-slider-value="1250" 
+						data-slider-max="5000" data-slider-step="100" 
+						data-slider-value="[0,5000]" 
 						name="sr_f"
 						/>
 					</div>
@@ -89,8 +89,8 @@
 						data-slider-id='input-slider' 
 						type="text" data-slider-min="0" 
 						data-slider-max="2400" 
-						data-slider-step="10" 
-						data-slider-value="600" 
+						data-slider-step="50" 
+						data-slider-value="[0,2400]" 
 						name="level_f"
 						/>
 					</div>
@@ -98,7 +98,7 @@
 					<div class="form-group">
 						<label for="">Role / Position</label>
 						<select class="form-control" id="" name="role_f">
-							<option value="" selected hidden>Select Role</option>
+							<option value="" selected>Select Role</option>
 							<option value="DPS">DPS</option>
 							<option value="Tank">Tank</option>
 							<option value="Support">Support</option>
@@ -108,7 +108,7 @@
 					<div class="form-group">
 						<label for="">Platform</label>
 						<select class="form-control" id="" name="platform_f">
-							<option value="" selected hidden>Select Platform</option>
+							<option value="" selected>Select Platform</option>
 							<option value="XBOX">Xbox One</option>
 							<option value="PS4">PS4</option>
 							<option value="PC">PC</option>
@@ -171,18 +171,18 @@
 							<form action="php/player_add.php" id="player-add-form" method="post">
 							<!--Username-->
 								<div class="form-group" id="modal-form">
-									<label for="">Username</label>
+									<label for="">Username*</label>
 									<input 
-                                        type="" 
+                                        type="text" 
                                         class="form-control" 
                                         id="" 
-                                        placeholder="Username" 
+                                        placeholder="Username"
                                         name="username" 
                                     >
 								</div>
 							<!--Server-->
 								<div class="form-group" id="modal-form">
-									<label for="">Server</label>
+									<label for="">Server*</label>
 									<select class="form-control" id="" name="server">
 										<option value="" selected hidden>Select Server</option>
 										<option value="NA">NA</option>
@@ -192,7 +192,7 @@
 								</div>
 							<!--Language-->
 								<div class="form-group" id="modal-form">
-									<label for="">Language</label>
+									<label for="">Language*</label>
 									<select class="form-control" id="" name="language">
 										<option value="" selected hidden>Select Language</option>
 										<option value="English">English</option>
@@ -216,7 +216,7 @@
 									<input id="sr-slide-listme" 
 									data-slider-id='input-slider' 
 									type="" data-slider-min="0" 
-									data-slider-max="5000" data-slider-step="10" 
+									data-slider-max="5000" data-slider-step="100" 
 									data-slider-value="2500" 
 									name="sr"
 									/>
@@ -228,14 +228,14 @@
 									data-slider-id='input-slider'
 									type="" data-slider-min="0"
 									data-slider-max="2400"
-									data-slider-step="10"
-									data-slider-value="1200" 
+									data-slider-step="50"
+									data-slider-value="200" 
 									name="level"
 									/>
 								</div>
 							<!--Role-->
 								<div class="form-group" id="modal-form">
-									<label for="">Role / Position</label>
+									<label for="">Role / Position*</label>
 									<select class="form-control" id="" name="role">
 										<option value="" selected hidden>Select Role</option>
 										<option value="DPS">DPS</option>
@@ -245,7 +245,7 @@
 								</div>
 							<!--Platform-->
 								<div class="form-group" id="modal-form">
-									<label for="">Platform</label>
+									<label for="">Platform*</label>
 									<select class="form-control" id="" name="platform">
 										<option value="" selected hidden>Select Platform</option>
 										<option value="XBOX">Xbox One</option>
@@ -292,6 +292,8 @@
 								</div>
 							</form>
 						</div>
+
+						<p class="text-center">* = required field</p>
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" id="submit-to-database" data-dismiss="modal">Submit</button>

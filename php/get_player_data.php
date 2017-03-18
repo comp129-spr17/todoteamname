@@ -26,6 +26,7 @@ $multiVar = false;
 // Initialize condition
 $condition = "";
 
+
 // Initialize all data to *
 // $server = "*";
 // $language = "*";
@@ -57,11 +58,13 @@ if (isset($_POST['language_f']) && !empty($_POST['language_f'])){
 	$multiVar = true;
 }
 if (isset($_POST['sr_f']) && !empty($_POST['sr_f'])){
+	$srStart = split(',',$_POST['sr_f'])[0];
+	$srEnd = split(',',$_POST['sr_f'])[1];
 	if($multiVar){
-		$condition = $condition . " AND (SeasonRank <= " .($_POST['sr_f'] + 500). " AND SeasonRank >= " .($_POST['sr_f'] - 500). ")";
+		$condition = $condition . " AND (SeasonRank <= " .($srEnd). " AND SeasonRank >= " .($srStart). ")";
 	}
 	else{
-		$condition = $condition . "(SeasonRank <= " .($_POST['sr_f'] + 500). " AND SeasonRank >= " .($_POST['sr_f'] - 500). ")";
+		$condition = $condition . "(SeasonRank <= " .($srEnd). " AND SeasonRank >= " .($srStart). ")";
 	}
 	$postData = true;
 	$multiVar = true;
@@ -77,11 +80,13 @@ if (isset($_POST['role_f']) && !empty($_POST['role_f'])){
 	$multiVar = true;
 }
 if (isset($_POST['level_f']) && !empty($_POST['level_f'])){
+	$lvlStart = split(',',$_POST['level_f'])[0];
+	$lvlEnd = split(',',$_POST['level_f'])[1];
 	if($multiVar){
-		$condition = $condition . " AND (Level <= " .($_POST['level_f'] + 50). " AND Level >= " .($_POST['level_f'] - 50). ")";
+		$condition = $condition . " AND (Level <= " .($lvlEnd). " AND Level >= " .($lvlStart). ")";
 	}
 	else{
-		$condition = $condition . "(Level <= " .($_POST['level_f'] + 50). " AND Level >= " .($_POST['level_f'] - 50). ")";
+		$condition = $condition . "(Level <= " .($lvlEnd). " AND Level >= " .($lvlStart). ")";
 	}
 	$postData = true;
 	$multiVar = true;

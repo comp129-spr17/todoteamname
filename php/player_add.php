@@ -23,7 +23,14 @@ if(isset($_POST['username'])
     && isset($_POST['sr'])
     && isset($_POST['level'])
     && isset($_POST['platform'])
-    && isset($_POST['role'])){
+    && isset($_POST['role'])
+    && !empty($_POST['username'])
+    && !empty($_POST['server'])
+    && !empty($_POST['language'])
+    && !empty($_POST['sr'])
+    && !empty($_POST['level'])
+    && !empty($_POST['platform'])
+    && !empty($_POST['role'])){
     // check if everything has a value
     // now we can do an insert
 	
@@ -79,6 +86,9 @@ if(isset($_POST['username'])
     //  actually maybe just a session variable that notifies main page about
     //  data insert.
     header("Location:../");
+}
+else{
+    echo "Error: Please fill out all required fields";
 }/*else{
 	if(!isset($_COOKIE[$cookie_values])) {
 		//if values is saved in a cookie use $cookie_values
