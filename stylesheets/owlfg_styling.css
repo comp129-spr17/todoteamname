@@ -138,3 +138,12 @@ td {
 .container{
     min-height: 85%;
 }
+
+/* Styles for the sliders */
+#input-slider .slider-selection {
+	background: #BABABA;
+}
+
+#input-slider .slider-handle {
+	background: #e65c00;
+}

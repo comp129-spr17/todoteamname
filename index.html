@@ -4,14 +4,17 @@
 	<title>OWLFG</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<link rel="stylesheet" href="stylesheets/bootstrap.css"/>
 		<link rel="stylesheet" href="stylesheets/owlfg_styling.css"/>
 		<link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="shortcut icon" href=""/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/owlfg.js"></script>
 		<script type="text/javascript" src="js/filter.js"></script>
+		<!--Plugin for the input slider via CDN. Source: https://github.com/seiyria/bootstrap-slider-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.min.js"></script>  
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css"/>
 	</head>
 	<body>
 <!-- navigation bar -->
@@ -68,10 +71,28 @@
 							<option value="繁體中文">繁體中文</option>
 						</select>
 					</div>
-				<!--SR Rank-->
-					<div class="form-group">
-						<label for="">SR Rank</label>
-						<input type="" class="form-control" id="" placeholder="SR Rank" name="sr_f">
+				<!--SR Rank Slider-->
+					<div>
+						<label for="points">SR Rank</label><br>
+						<input id="sr-slide" 
+						data-slider-id='input-slider' 
+						type="text" data-slider-min="0" 
+						data-slider-max="5000" data-slider-step="10" 
+						data-slider-value="1250" 
+						name="sr_f"
+						/>
+					</div>
+				<!--Level Slider-->
+					<div>
+						<label for="points">Level</label><br>
+						<input id="lvl-slide" 
+						data-slider-id='input-slider' 
+						type="text" data-slider-min="0" 
+						data-slider-max="2400" 
+						data-slider-step="10" 
+						data-slider-value="600" 
+						name="level_f"
+						/>
 					</div>
 				<!--Role Dropdown-->
 					<div class="form-group">
@@ -82,11 +103,6 @@
 							<option value="Tank">Tank</option>
 							<option value="Support">Support</option>
 						</select>
-					</div>
-				<!--Level Dropdown-->
-					<div class="form-group">
-						<label for="">Level</label>
-						<input type="" class="form-control" id="" placeholder="Level" name="level_f">
 					</div>
 				<!--Platform Dropdown-->
 					<div class="form-group">
@@ -196,15 +212,26 @@
 								</div>
 							<!--SR rank-->
 								<div class="form-group" id="modal-form">
-									<label for="">SR Rank</label>
-									<input 
-                                        type="" 
-                                        class="form-control" 
-                                        id="" 
-                                        placeholder="SR Rank" 
-                                        name="sr"
-                                        pattern="[0-9]{1,4}"
-                                    >
+									<label for="">SR Rank</label><br>
+									<input id="sr-slide-listme" 
+									data-slider-id='input-slider' 
+									type="" data-slider-min="0" 
+									data-slider-max="5000" data-slider-step="10" 
+									data-slider-value="2500" 
+									name="sr"
+									/>
+								</div>
+							<!--Level-->
+								<div class="form-group" id="modal-form">
+									<label for="">Level</label><br>
+									<input id="lvl-slide-listme" 
+									data-slider-id='input-slider'
+									type="" data-slider-min="0"
+									data-slider-max="2400"
+									data-slider-step="10"
+									data-slider-value="1200" 
+									name="level"
+									/>
 								</div>
 							<!--Role-->
 								<div class="form-group" id="modal-form">
@@ -215,18 +242,6 @@
 										<option value="Tank">Tank</option>
 										<option value="Support">Support</option>
 									</select>
-								</div>
-							<!--Level-->
-								<div class="form-group" id="modal-form">
-									<label for="">Level</label>
-									<input 
-                                        type="" 
-                                        class="form-control" 
-                                        id="" 
-                                        placeholder="Level" 
-                                        name="level"
-                                        pattern="[0-9]{1,4}"
-                                    >
 								</div>
 							<!--Platform-->
 								<div class="form-group" id="modal-form">

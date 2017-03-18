@@ -8,6 +8,27 @@ $(document).ready(function(){
     $("#submit-to-database").click(function(){
     document.getElementById("player-add-form").submit();
   });
+  // Functions below are for displaying the value of the sliders when hovered over or dragged   
+    $("#sr-slide").bootstrapSlider({
+	formatter: function(value) {
+		return value;
+	    }
+    });
+    $("#sr-slide-listme").bootstrapSlider({
+	formatter: function(value) {
+		return value;
+	    }
+    });
+    $("#lvl-slide").bootstrapSlider({
+	formatter: function(value) {
+		return value;
+	    }
+    });
+    $("#lvl-slide-listme").bootstrapSlider({
+	formatter: function(value) {
+		return value;
+	    }
+    });
 });
 
 // On page load, the entire database contents are inserted into the results
