@@ -58,10 +58,10 @@ if (isset($_POST['language_f']) && !empty($_POST['language_f'])){
 }
 if (isset($_POST['sr_f']) && !empty($_POST['sr_f'])){
 	if($multiVar){
-		$condition = $condition . " AND (SeasonRank <= " .($sr + 500). " AND SeasonRank >= " .($sr - 500). ")";
+		$condition = $condition . " AND (SeasonRank <= " .($_POST['sr_f'] + 500). " AND SeasonRank >= " .($_POST['sr_f'] - 500). ")";
 	}
 	else{
-		$condition = $condition . "(SeasonRank <= " .($sr + 500). " AND SeasonRank >= " .($sr - 500). ")";
+		$condition = $condition . "(SeasonRank <= " .($_POST['sr_f'] + 500). " AND SeasonRank >= " .($_POST['sr_f'] - 500). ")";
 	}
 	$postData = true;
 	$multiVar = true;
