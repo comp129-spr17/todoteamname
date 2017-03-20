@@ -16,6 +16,7 @@
 header('Content-type: text/json');
 
 include_once("playerdb.php"); // $playerdb
+include_once("constants.php"); // constants
 
 // Initialize postData to false
 $postData = false;
@@ -43,16 +44,18 @@ $condition = "";
 // Check whether there is data from POST
 // If so, get the data and add it to the filter
 if (isset($_POST['server_f']) && !empty($_POST['server_f'])){
-	$condition = $condition . "Server = '" . $_POST['server_f'] . "'";
+    $server_f = str_replace("'", "''", $_POST['server_f']);
+	$condition = $condition . "Server = '" . $server_f . "'";
 	$postData = true;
 	$multiVar = true;
 }
 if (isset($_POST['language_f']) && !empty($_POST['language_f'])){
+    $language_f = str_replace("'", "''", $_POST['language_f']);
 	if($multiVar){
-		$condition = $condition . " AND Language = '" . $_POST['language_f'] . "'";
+		$condition = $condition . " AND Language = '" . $language_f . "'";
 	}
 	else{
-		$condition = $condition . "Language = '" . $_POST['language_f'] . "'";
+		$condition = $condition . "Language = '" . $language_f . "'";
 	}
 	$postData = true;
 	$multiVar = true;
@@ -70,11 +73,12 @@ if (isset($_POST['sr_f']) && !empty($_POST['sr_f'])){
 	$multiVar = true;
 }
 if (isset($_POST['role_f']) && !empty($_POST['role_f'])){
+    $role_f = str_replace("'", "''", $_POST['role_f']);
 	if($multiVar){
-		$condition = $condition . " AND Role = '" . $_POST['role_f'] . "'";
+		$condition = $condition . " AND Role = '" . $role_f . "'";
 	}
 	else{
-		$condition = $condition . "Role = '" . $_POST['role_f'] . "'";
+		$condition = $condition . "Role = '" . $role_f . "'";
 	}
 	$postData = true;
 	$multiVar = true;
@@ -92,41 +96,45 @@ if (isset($_POST['level_f']) && !empty($_POST['level_f'])){
 	$multiVar = true;
 }
 if (isset($_POST['platform_f']) && !empty($_POST['platform_f'])){
+    $platform_f = str_replace("'", "''", $_POST['platform_f']);
 	if($multiVar){
-		$condition = $condition . " AND Platform = '" . $_POST['platform_f'] . "'";
+		$condition = $condition . " AND Platform = '" . $platform_f . "'";
 	}
 	else{
-		$condition = $condition . "Platform = '" . $_POST['platform_f'] . "'";
+		$condition = $condition . "Platform = '" . $platform_f . "'";
 	}
 	$postData = true;
 	$multiVar = true;
 }
 if (isset($_POST['mic_f']) && !empty($_POST['mic_f'])){
+    $mic_f = str_replace("'", "''", $_POST['mic_f']);
 	if($multiVar){
-		$condition = $condition . " AND HasMicrophone = " . $_POST['mic_f'] . "";
+		$condition = $condition . " AND HasMicrophone = " . $mic_f . "";
 	}
 	else{
-		$condition = $condition . "HasMicrophone = " . $_POST['mic_f'] . "";
+		$condition = $condition . "HasMicrophone = " . $mic_f . "";
 	}
 	$postData = true;
 	$multiVar = true;
 }
 if (isset($_POST['comp_f']) && !empty($_POST['comp_f'])){
+    $comp_f = str_replace("'", "''", $_POST['comp_f']);
 	if($multiVar){
-		$condition = $condition . " AND IsCompetitive = " . $_POST['comp_f'] . "";
+		$condition = $condition . " AND IsCompetitive = " . $comp_f . "";
 	}
 	else{
-		$condition = $condition . "IsCompetitive = " . $_POST['comp_f'] . "";
+		$condition = $condition . "IsCompetitive = " . $comp_f . "";
 	}
 	$postData = true;
 	$multiVar = true;
 }
 if (isset($_POST['mat_f']) && !empty($_POST['mat_f'])){
+    $mat_f = str_replace("'", "''", $_POST['mat_f']);
 	if($multiVar){
-		$condition = $condition . " AND IsMature = " . $_POST['mat_f'] . "";
+		$condition = $condition . " AND IsMature = " . $mat_f . "";
 	}
 	else{
-		$condition = $condition . "IsMature = " . $_POST['mat_f'] . "";
+		$condition = $condition . "IsMature = " . $mat_f . "";
 	}
 	$postData = true;
 	$multiVar = true;
