@@ -10,10 +10,6 @@
 
 include_once("playerdb.php"); // $playerdb
 
-// CONSTANTS:
-$SR_DEFAULT = 0;
-$LVL_DEFAULT = 0;
-
 //$cookie_values
 //setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
