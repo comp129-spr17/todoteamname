@@ -6,18 +6,14 @@
  * Submits data gathered from form into database
  */
 
-// CONSTANTS:
-$SR_DEFAULT = 0;
-$LVL_DEFAULT = 0
+
 
 include_once("playerdb.php"); // $playerdb
 
-// for now, just display all the information candidly so data gathering works
+// CONSTANTS:
+$SR_DEFAULT = 0;
+$LVL_DEFAULT = 0;
 
-// eventually this will all just be php, no html
-
-// validation for everything will be done lter
-// for now, validation for sr and level is on the form itself
 //$cookie_values
 //setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
@@ -45,7 +41,7 @@ if(isset($_POST['username'])
     // num fields we check using is_numeric and is_int
     // checkboxes is just a set check, we supply boolean value
     $username = str_replace("'", "''", $_POST['username']);
-    $server = str_replace("'", "''", $_POST['server'];
+    $server = str_replace("'", "''", $_POST['server']);
     $language = str_replace("'", "''", $_POST['language']);
     $role = str_replace("'", "''", $_POST['role']);
     $platform = str_replace("'", "''", $_POST['platform']);
