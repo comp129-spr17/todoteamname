@@ -6,6 +6,10 @@
  * Submits data gathered from form into database
  */
 
+// CONSTANTS:
+$SR_DEFAULT = 0;
+$LVL_DEFAULT = 0
+
 include_once("playerdb.php"); // $playerdb
 
 // for now, just display all the information candidly so data gathering works
@@ -33,23 +37,43 @@ if(isset($_POST['username'])
     && !empty($_POST['role'])){
     // check if everything has a value
     // now we can do an insert
-	
-    // but first turn some of the data into ints
-    //$groupsize = (int)$_POST['group'];
-    $seasonrank = (int)$_POST['sr'];
-    $hasmic = (int)$_POST['mic'];
-    //    $ismature = (int)$_POST[' this isnt here what
-    //    neither is $iscomp
-    $level = (int)$_POST['level'];
+
+    // sql injection rejection
+    // (done by escaping single quotes)
+    // we do all fields in case of POST spoofing
+    // (except num fields and checkboxes)
+    // num fields we check using is_numeric and is_int
+    // checkboxes is just a set check, we supply boolean value
+    $username = str_replace("'", "''", $_POST['username']);
+    $server = str_replace("'", "''", $_POST['server'];
+    $language = str_replace("'", "''", $_POST['language']);
+    $role = str_replace("'", "''", $_POST['role']);
+    $platform = str_replace("'", "''", $_POST['platform']);
+    $contact = str_replace("'", "''", $_POST['contact']);
+
+    // num field validations (also prevents sql injection)
+    // note: we still would need to do slider number validations (maybe)
+    $sr_str = $_POST['sr'];
+    if(is_numeric($sr_str)){
+        $sr = (int)$sr_str;
+    }else{
+        $sr = $SR_DEFAULT;
+    }
+
+    $lvl_str = $_POST['level'];
+    if(is_numeric($lvl_str)){
+        $lvl = (int)$lvl_str;
+    }else{
+        $lvl = $LVL_DEFAULT;
+    }
 
     // first do fields
     $fields = "Name,Info,Server,Platform,Language,SeasonRank,";
     $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
 
     // now to do values
-    $values = "'".$_POST['username']."','".$_POST['contact']."','";
-    $values = $values.$_POST['server']."','".$_POST['platform']."',";
-    $values = $values."'".$_POST['language']."',".$seasonrank;
+    $values = "'".$username."','".$contact."','".$server."','".$platform."','";
+    $values = $values.$language."',".$sr;
 
     // check for mic
     if(isset($_POST['mic'])){
@@ -58,7 +82,7 @@ if(isset($_POST['username'])
         $values = $values.",FALSE,";
     }
         
-    $values = $values."'".$_POST['role']."',";
+    $values = $values."'".$role."',";
 
     // check for maturity
     if(isset($_POST['mat'])){
@@ -67,7 +91,7 @@ if(isset($_POST['username'])
         $values = $values."FALSE,";
     }
 
-    $values = $values.$level.",";
+    $values = $values.$lvl.",";
 
     // check for comp
     if(isset($_POST['comp'])){
