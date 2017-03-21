@@ -10,5 +10,5 @@
 
 // CONSTANTS:
 $SR_DEFAULT = 0;
-$LVL_DEFAULT = 0;
+$LVL_DEFAULT = 1;
 ?>
