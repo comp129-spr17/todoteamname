@@ -33,10 +33,13 @@ cmpServer = "None"
 cmpPlatform = "None"
 cmpGroupSize = "None"
 cmpLanguage = "None"
-cmpSeasonRank = "None"
 cmpHasMicrophone = "None"
 cmpRole = "None"
 cmpIsCompetitive = "None"
+cmpMaxSeasonRank = -1
+cmpMinSeasonRank = -1
+cmpMaxLevel = -1
+cmpMinLevel = -1
 roles = ["OFFENSE","DEFENSE","TANK","SUPPORT"]
 languages = ["ENG", "ES", "CN", "JPN", "KOR"]
 servers = ["USA","ASIA","EUROPE","AUSTRALIA"]
@@ -56,29 +59,30 @@ def getPlatform():
     global cmpPlatform
     global cmpCount
     cmpPlatform = platforms[selN]
-    cmpCount +=1
+    cmpCount +=10
 def getGroupSize():
     selN =1
     while selN <6 and selN >0:
         selN = int(input("Enter Group Size filter number: 1-6: "))
     global cmpGroupSize
     global cmpCount
-    cmpGroupSize = selN
-    cmpCount += 1
+    cmpGroupSize = str(selN)
+    cmpCount += 100
 def getLanguage():
     selN = int(input("Enter Language filter number: 0:ENG 1:ES 2:CN 3:JPN 4:KOR: "))
     global cmpLanguage
     global cmpCount
     cmpLanguage = languages[selN]
-    cmpCount += 1
+    cmpCount += 1000
 def getSeasonRank():
-    selN = 1
-    while selN < 3000 and selN > 0:
-        selN = int(input("Enter Season Rank filter number (filters between entered input and 100 ranks higher): 1-6: "))
-    global cmpSeasonRank
+    global cmpMinSeasonRank
+    global cmpMaxSeasonRank
+    while cmpMaxSeasonRank > 5000 or cmpMaxSeasonRank < 0:
+        cmpMaxSeasonRank = int(input("Enter Max Season Rank between 0 and 5000"))
+    while cmpMinSeasonRank > 5000 or cmpMinSeasonRank < 0 or cmpMinSeasonRank > cmpMaxSeasonRank:
+        cmpMinSeasonRank = int(input("Enter Min Season Rank between 0 and 5000 and less than Max Season Rank"))
     global cmpCount
-    cmpCount += 1
-    cmpSeasonRank = selN
+    cmpCount += 10000
 def getHasMicrophone():
     global cmpHasMicrophone
     global cmpCount
@@ -87,13 +91,13 @@ def getHasMicrophone():
         cmpHasMicrophone = "FALSE"
     else:
         cmpHasMicrophone = "TRUE"
-    cmpCount += 1
+    cmpCount += 100000
 def getRole():
     selN = int(input("Enter Role filter number: 0:OFFENSE 1:DEFENSE 2:TANK 3:SUPPORT: "))
     global cmpRole
     global cmpCount
     cmpRole = roles[selN]
-    cmpCount += 1
+    cmpCount += 1000000
 def getIsCompetitive():
     selN = int(input("Enter IsCompetitive filter number: 0:FALSE 1:TRUE: "))
     global cmpIsCompetitive
@@ -102,11 +106,21 @@ def getIsCompetitive():
         cmpIsCompetitive = "FALSE"
     else:
         cmpIsCompetitive = "TRUE"
-    cmpCount += 1
+    cmpCount += 10000000
+def getLevel():
+    global cmpMinLevel
+    global cmpMaxLevel
+    while cmpMaxLevel > 2500 or cmpMaxLevel < 0:
+        cmpMaxLevel = int(input("Enter Max level between 0 and 2500"))
+    while cmpMinLevel > 2500 or cmpMinLevel < 0 or cmpMinLevel > cmpMaxLevel:
+        cmpMinLevel = int(input("Enter Min level between 0 and 2500 and less than Max level"))
+    global cmpCount
+    cmpCount += 100000000
+
 def exit():
     return
 while filter.lower() == 'true':
-    selection = int(input("Enter number of filter:\nServer = 0\nPlatform = 1\nGroup Size = 2\nLanguage = 3\nSeason Rank = 4\nHas Mic = 5\nRole = 6\nIs Competitive = 7\nexit = 8\n\n"))
+    selection = int(input("Enter number of filter:\nServer = 0\nPlatform = 1\nGroup Size = 2\nLanguage = 3\nSeason Rank = 4\nHas Mic = 5\nRole = 6\nIs Competitive = 7\nLevel = 8\nexit = 9\n\n"))
     options = {0:getServer,
             1:getPlatform,
             2:getGroupSize,
@@ -115,11 +129,12 @@ while filter.lower() == 'true':
             5:getHasMicrophone,
             6:getRole,
             7:getIsCompetitive,
-            8:exit}
+            8:getLevel,
+            9:exit }
 
     options[selection]()
     wentThroughFilter = 1
-    print("Filtering : "+"\nServer: "+cmpServer+"\nPlatform:"+cmpPlatform+"\nGroup Size: "+cmpGroupSize+"\nLanguage: "+cmpLanguage+"\nSeason Rank: "+cmpSeasonRank+"\nHas Microphone: "+cmpHasMicrophone+"\nRole: "+cmpRole+"\nIs Competitive: "+cmpIsCompetitive)
+    print("Filtering : "+"\nServer: "+cmpServer+"\nPlatform:"+cmpPlatform+"\nGroup Size: "+cmpGroupSize+"\nLanguage: "+cmpLanguage+"\nSeason Rank: "+str(cmpMaxSeasonRank)+"\nHas Microphone: "+cmpHasMicrophone+"\nRole: "+cmpRole+"\nIs Competitive: "+cmpIsCompetitive+"\nLevel: "+str(cmpMaxLevel))
     filter = input("Enter another filter? true or false:")
 
 def dateTime():
@@ -163,23 +178,27 @@ with open("OWLFG_testData.sql",'w') as sqlOut,open("testData_expectedResults.txt
         )
 
         count = 0
-        if cmpIsCompetitive == isCompetitive:
-            count+= 1
-        if cmpHasMicrophone == hasMicrophone:
-            count+= 1
-        if cmpGroupSize == groupSize:
-            count+=1
-        if cmpLanguage == language:
-            count+=1
-        if cmpPlatform == platform:
-            count+=1
-        if cmpRole == role:
-            count+=1
-        if cmpSeasonRank == seasonRank:
-            count+=1
         if cmpServer == server:
             count+=1
+        if cmpPlatform == platform:
+            count+=10
+        if cmpGroupSize == groupSize:
+            print("!!!!!")
+            count+=100
+        if cmpLanguage == language:
+            count+=1000
+        if cmpMaxSeasonRank >= int(seasonRank) and cmpMinSeasonRank <= int(seasonRank):
+            count+=10000
+        if cmpHasMicrophone == hasMicrophone:
+            count+= 100000
+        if cmpRole == role:
+            count+=1000000
+        if cmpIsCompetitive == isCompetitive:
+            count+= 10000000
+        if cmpMaxLevel >= int(level) and cmpMinLevel <= int(level):
+            count+= 100000000
+
         if cmpCount == count and( wentThroughFilter == 0 or cmpIsCompetitive == isCompetitive or cmpHasMicrophone == hasMicrophone or cmpGroupSize == groupSize or cmpLanguage == language\
-                or cmpPlatform == platform or cmpRole == role or cmpSeasonRank == seasonRank or cmpServer == server):
+                or cmpPlatform == platform or cmpRole == role or (cmpMaxSeasonRank >= int(seasonRank) and cmpMinSeasonRank <= int(seasonRank)) or (cmpMaxLevel >= int(level) and cmpMinLevel <= int(level)) or cmpServer == server):
             expectedResults.write(uid+"\n"+name+"\n"+info+"\n"+server+"\n"+platform+"\n"+groupSize+"\n"+language+"\n"+seasonRank+"\n"+hasMicrophone+"\n"+role+"\n"+isMature+"\n"+level+"\n"+isCompetitive+"\n"+creationTime+"\n")
             expectedResults.write("========================================================================\n")
