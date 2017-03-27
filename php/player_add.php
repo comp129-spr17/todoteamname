@@ -7,8 +7,15 @@
  */
 
 
+
+
+// CONSTANTS:
+$SR_DEFAULT = 0;
+$LVL_DEFAULT = 0;
+
 include_once("playerdb.php"); // $playerdb
 include_once("constants.php"); // constants
+
 
 //$cookie_values
 //setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
@@ -27,6 +34,17 @@ if(isset($_POST['username'])
     && !empty($_POST['level'])
     && !empty($_POST['platform'])
     && !empty($_POST['role'])){
+
+    setcookie('username', $_POST['username'],time()+3600, '/');
+    setcookie('server', $_POST['server'],time()+3600,'/');
+    setcookie('language', $_POST['language'],time()+3600, '/');
+    setcookie('sr', $_POST['sr'],time()+3600, '/');
+    setcookie('level',$_POST['level'],time()+3600, '/');
+    setcookie('platform', $_POST['platform'],time()+3600, '/');
+    setcookie('role',$_POST['role'],time()+3600, '/');
+
+
+   
     // check if everything has a value
     // now we can do an insert
 
@@ -101,7 +119,11 @@ if(isset($_POST['username'])
     // TODO: add confirmation message before redirect?
     //  actually maybe just a session variable that notifies main page about
     //  data insert.
-    header("Location:../");
+   
+
+
+
+   header("Location:../");
 }
 else{
     echo "Error: Please fill out all required fields";

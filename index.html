@@ -1,4 +1,23 @@
 <!doctype html>
+<?php
+if (!isset($_COOKIE['username'])
+&& !isset($_COOKIE['server'])
+    && !isset($_COOKIE['language'])
+    && !isset($_COOKIE['sr'])
+    && !isset($_COOKIE['level'])
+    && !isset($_COOKIE['platform'])
+    && !isset($_COOKIE['role'])) {
+
+	setcookie("username", '1', time()+3600, '/');
+	setcookie("server", '1', time()+3600, '/');
+	setcookie("language", '1', time()+3600, '/');
+	setcookie("sr", '1', time()+3600, '/');
+	setcookie("level", '1', time()+3600, '/');
+	setcookie("platform", '1', time()+3600, '/');
+	setcookie("role", '1', time()+3600, '/');
+
+}
+?>
 <html>
 	<head>
 	<title>OWLFG</title>
@@ -172,19 +191,31 @@
 							<!--Username-->
 								<div class="form-group" id="modal-form">
 									<label for="">Username*</label>
+									<!--Use username cookie-->
+									<?php echo (($_COOKIE['username']!='1')?'
 									<input 
                                         type="text" 
                                         class="form-control" 
-                                        id="" 
+                                        id=""
+                                        value="'.$_COOKIE['username'].'"
+                                        name="username"
+                                    />': '
+                                    <input 
+                                        
+                                   		type="text" 
+                                        class="form-control" 
+                                        id=""
                                         placeholder="Username"
                                         name="username" 
-                                    >
+                                    />
+                                    ');?>
 								</div>
 							<!--Server-->
 								<div class="form-group" id="modal-form">
 									<label for="">Server*</label>
 									<select class="form-control" id="" name="server">
-										<option value="" selected hidden>Select Server</option>
+										<!--Use server cookie-->
+										<option value=<?php if($_COOKIE['server']!='1'){ echo '"'.$_COOKIE['server'].'" selected>'.$_COOKIE['server'].'</option>';}else{echo '"" selected hidden>Select Server</option>';}?>
 										<option value="NA">NA</option>
 										<option value="EU">EU</option>
 										<option value="AS">AS</option>
@@ -194,7 +225,8 @@
 								<div class="form-group" id="modal-form">
 									<label for="">Language*</label>
 									<select class="form-control" id="" name="language">
-										<option value="" selected hidden>Select Language</option>
+										<!--Use language cookie-->
+										<option value=<?php if($_COOKIE['language']!='1'){ echo '"'.$_COOKIE['language'].'" selected>'.$_COOKIE['language'].'</option>';}else{echo '"" selected hidden>Select Language</option>';}?>
 										<option value="English">English</option>
 										<option value="Español(AU)">Español(AU)</option>
 										<option value="Español(EL)">Español(EL)</option>
@@ -213,31 +245,53 @@
 							<!--SR rank-->
 								<div class="form-group" id="modal-form">
 									<label for="">SR Rank</label><br>
+									<!--Use sr cookie-->
+									<?php echo (($_COOKIE['sr']=='1')?'
 									<input id="sr-slide-listme" 
-									data-slider-id='input-slider' 
+									data-slider-id="input-slider" 
 									type="" data-slider-min="0" 
 									data-slider-max="5000" data-slider-step="100" 
-									data-slider-value="2500" 
 									name="sr"
-									/>
+									data-slider-value= "2500" />':'
+									<input id="sr-slide-listme" 
+									data-slider-id="input-slider" 
+									type="" data-slider-min="0" 
+									data-slider-max="5000" data-slider-step="100" 
+									name="sr"
+									data-slider-value="'.$_COOKIE['sr'].'"/>
+									');?>
+									
+									
 								</div>
 							<!--Level-->
 								<div class="form-group" id="modal-form">
 									<label for="">Level</label><br>
-									<input id="lvl-slide-listme" 
-									data-slider-id='input-slider'
+									<!--Use level cookie-->
+									<?php echo (($_COOKIE['level']=='1')?
+									'<input id="lvl-slide-listme" 
+									data-slider-id="input-slider"
 									type="" data-slider-min="0"
 									data-slider-max="2400"
 									data-slider-step="50"
-									data-slider-value="200" 
 									name="level"
-									/>
+									data-slider-value="200" />':
+									'<input id="lvl-slide-listme" 
+									data-slider-id="input-slider"
+									type="" data-slider-min="0"
+									data-slider-max="2400"
+									data-slider-step="50"
+									name="level"
+									data-slider-value="'.$_COOKIE['level'].'" />
+									');?>
+									
+									
 								</div>
 							<!--Role-->
 								<div class="form-group" id="modal-form">
 									<label for="">Role / Position*</label>
 									<select class="form-control" id="" name="role">
-										<option value="" selected hidden>Select Role</option>
+										<!--Use role cookie-->
+										<option value= <?php if($_COOKIE['role']!='1'){ echo '"'.$_COOKIE['role'].'" selected>'.$_COOKIE['role'].'</option>';}else{echo '"" selected hidden>Select Role</option>';}?>
 										<option value="DPS">DPS</option>
 										<option value="Tank">Tank</option>
 										<option value="Support">Support</option>
@@ -247,7 +301,8 @@
 								<div class="form-group" id="modal-form">
 									<label for="">Platform*</label>
 									<select class="form-control" id="" name="platform">
-										<option value="" selected hidden>Select Platform</option>
+										<!--Use platform Cookie-->
+										<option value=<?php if($_COOKIE['platform']!='1'){ echo '"'.$_COOKIE['platform'].'" selected>'.$_COOKIE['platform'].'</option>';}else{echo '"" selected hidden>Select Platform</option>';}?>
 										<option value="XBOX">Xbox One</option>
 										<option value="PS4">PS4</option>
 										<option value="PC">PC</option>
