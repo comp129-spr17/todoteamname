@@ -88,8 +88,10 @@ if(isset($_POST['username'])
     // check for mic
     if(isset($_POST['mic'])){
         $values = $values.",TRUE,";
+		setcookie('mic',"TRUE",time()+3600, '/');
     }else{
         $values = $values.",FALSE,";
+		setcookie('mic',"FALSE",time()+3600, '/');
     }
         
     $values = $values."'".$role."',";
@@ -97,8 +99,10 @@ if(isset($_POST['username'])
     // check for maturity
     if(isset($_POST['mat'])){
         $values = $values."TRUE,";
+		setcookie('mat',"TRUE",time()+3600, '/');
     }else{
         $values = $values."FALSE,";
+		setcookie('mat',"FALSE",time()+3600, '/');
     }
 
     $values = $values.$lvl.",";
@@ -106,8 +110,10 @@ if(isset($_POST['username'])
     // check for comp
     if(isset($_POST['comp'])){
         $values = $values."TRUE";
+		setcookie('comp',"TRUE",time()+3600, '/');
     }else{
         $values = $values."FALSE";
+		setcookie('comp',"FALSE",time()+3600, '/');
     }
 
 	//save values to cookie

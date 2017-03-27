@@ -1,12 +1,12 @@
 <!doctype html>
 <?php
-if (!isset($_COOKIE['username'])
-&& !isset($_COOKIE['server'])
-    && !isset($_COOKIE['language'])
-    && !isset($_COOKIE['sr'])
-    && !isset($_COOKIE['level'])
-    && !isset($_COOKIE['platform'])
-    && !isset($_COOKIE['role'])) {
+if ((!isset($_COOKIE['username'])||empty($_COOKIE['username']))
+&& (!isset($_COOKIE['server'])||empty($_COOKIE['server']))
+    && (!isset($_COOKIE['language'])||empty($_COOKIE['language']))
+    && (!isset($_COOKIE['sr'])||empty($_COOKIE['sr']))
+    && (!isset($_COOKIE['level'])||empty($_COOKIE['level']))
+    && (!isset($_COOKIE['platform'])||empty($_COOKIE['platform']))
+    && (!isset($_COOKIE['role'])||empty($_COOKIE['role']))) {
 
 	setcookie("username", '1', time()+3600, '/');
 	setcookie("server", '1', time()+3600, '/');
@@ -16,6 +16,18 @@ if (!isset($_COOKIE['username'])
 	setcookie("platform", '1', time()+3600, '/');
 	setcookie("role", '1', time()+3600, '/');
 
+}
+
+if (!isset($_COOKIE['mic'])||empty($_COOKIE['mic'])){
+	setcookie('mic',"1",time()+3600, '/');
+}
+
+if (!isset($_COOKIE['mat'])||empty($_COOKIE['mat'])){
+	setcookie('mat',"1",time()+3600, '/');
+}
+
+if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
+	setcookie('comp',"1",time()+3600, '/');
 }
 ?>
 <html>
