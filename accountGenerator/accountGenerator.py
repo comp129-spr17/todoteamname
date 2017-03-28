@@ -3,7 +3,10 @@ import random
 import time
 
 #python 3.2.3 outputs OWLFG_testData.sql and testData_expectedResults.txt
+# creates an account and creates the expected output from the filtering algorithm
+# so we can test that
 
+# intialize variables for comparison
 uid = "2"
 name = "alexicat"
 info = "somebody once told me"
@@ -21,14 +24,17 @@ creationTime = "2017-03-26 21-46-40"
 cmpCount = 0
 count = 0
 
-phrses = []
+# testdata phrases for contact info
+phrases = []
 with open("phrases.txt",'r') as f:
     phrases = f.read().splitlines()
 
+# testdata names for names
 names = []
 with open("names.txt",'r') as f:
     names = f.read().splitlines()
 
+# defaults
 cmpServer = "None"
 cmpPlatform = "None"
 cmpGroupSize = "None"
@@ -40,14 +46,24 @@ cmpMaxSeasonRank = -1
 cmpMinSeasonRank = -1
 cmpMaxLevel = -1
 cmpMinLevel = -1
+
+# options arrays
 roles = ["OFFENSE","DEFENSE","TANK","SUPPORT"]
 languages = ["ENG", "ES", "CN", "JPN", "KOR"]
 servers = ["USA","ASIA","EUROPE","AUSTRALIA"]
 platforms = ["PC","XBOX","PS4"]
+
 players = int(input("Enter number of players: "))
 filter = input("Filter data?: true or false ")
 selN = 0
 wentThroughFilter = 0
+
+# setup boolean filter array
+filter_selections = []
+for i in range(0,10): 
+    filter_selections.append(False)
+
+# ask user for server
 def getServer():
     selN = int(input("Enter Server filter number: 0:USA 1:ASIA 2:EUROPE 3:AUSTRALIA: "))
     global cmpServer
@@ -145,7 +161,10 @@ def dateTime():
 
 
 with open("OWLFG_testData.sql",'w') as sqlOut,open("testData_expectedResults.txt",'w') as expectedResults:
+    
+    print("\n\nRAndomly generated data for this test: \n")
 
+    # prints out all the randomly genere4ted data for thsi test
     for i in range(1, players + 1):
         uid = str(i)
         name = names[random.randint(0, names.__len__() - 1)]
@@ -174,6 +193,8 @@ with open("OWLFG_testData.sql",'w') as sqlOut,open("testData_expectedResults.txt
         print(isCompetitive)
         creationTime = dateTime()
         print(creationTime)
+
+# create insert statement for db
         sqlOut.write("INSERT INTO Players VALUES(\'"+uid+"\',\'"+name+"\',\'"+info+"\',\'"+server+"\',\'"+platform+"\',\'"+groupSize+"\',\'"+language+"\',\'"+seasonRank+"\',\'"+hasMicrophone+"\',\'"+role+"\',\'"+isMature+"\',\'"+level+"\',\'"+isCompetitive+"\',\'"+creationTime+"\');\n"
         )
 
@@ -198,7 +219,7 @@ with open("OWLFG_testData.sql",'w') as sqlOut,open("testData_expectedResults.txt
         if cmpMaxLevel >= int(level) and cmpMinLevel <= int(level):
             count+= 100000000
 
-        if cmpCount == count and( wentThroughFilter == 0 or cmpIsCompetitive == isCompetitive or cmpHasMicrophone == hasMicrophone or cmpGroupSize == groupSize or cmpLanguage == language\
-                or cmpPlatform == platform or cmpRole == role or (cmpMaxSeasonRank >= int(seasonRank) and cmpMinSeasonRank <= int(seasonRank)) or (cmpMaxLevel >= int(level) and cmpMinLevel <= int(level)) or cmpServer == server):
+        if cmpCount == count: #and( wentThroughFilter == 0 or cmpIsCompetitive == isCompetitive or cmpHasMicrophone == hasMicrophone or cmpGroupSize == groupSize or cmpLanguage == language\
+                #or cmpPlatform == platform or cmpRole == role or (cmpMaxSeasonRank >= int(seasonRank) and cmpMinSeasonRank <= int(seasonRank)) or (cmpMaxLevel >= int(level) and cmpMinLevel <= int(level)) or cmpServer == server):
             expectedResults.write(uid+"\n"+name+"\n"+info+"\n"+server+"\n"+platform+"\n"+groupSize+"\n"+language+"\n"+seasonRank+"\n"+hasMicrophone+"\n"+role+"\n"+isMature+"\n"+level+"\n"+isCompetitive+"\n"+creationTime+"\n")
             expectedResults.write("========================================================================\n")

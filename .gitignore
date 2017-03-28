@@ -1,5 +1,9 @@
 # OS files #
 
+# account generator test files
+accountGenerator/OWLFG_testData.sql
+accountGenerator/testData_expectedResults.txt
+
 .DS_Store
 *.swp # vim
 
