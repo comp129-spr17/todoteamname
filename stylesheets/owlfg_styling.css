@@ -70,6 +70,20 @@ body {
     background-color: #e65c00; 
 }
 
+#refresh-button {
+    position: absolute;
+    border: 0px;
+    top: 80%;
+    right: 5%;
+    background-color: transparent;
+    color: #2F2526;
+    padding: 0px;
+}
+
+#refresh-button:hover {
+    color: rgba(0,0,0,0.5);
+}
+
 #results {
     float: right;
     height: 80%;

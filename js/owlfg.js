@@ -29,12 +29,26 @@ $(document).ready(function(){
 		return value;
 	    }
     });
+
+    // When the refresh button is pressed the contents of the table are 
+    // removed and re-drawn to the page, for updating the table without 
+    // refreshing the page
+    $("#refresh-button").click(function() {
+        $("#results-table tbody tr").remove();
+        build_table();
+    });
 });
 
-// On page load, the entire database contents are inserted into the results
-// table by getting the JSON data from get_player_data.php
+
+// On page load, the entire database contents are inserted into the results table
 $(window).on("load", function() {
-    $.getJSON('/php/get_player_data.php', function(players) {
+    build_table();
+});
+
+
+// Function to build the table with the data passed in via PHP GET as JSON
+function build_table() {
+    $.getJSON('/OWLFGtest/todoteamname/php/get_player_data.php', function(players) {
         $.each(players, function(key, val) {
             var start_row='<tr id="found-player">';
             var name='<td style=width:25%>'+ val.Name +'</td>';
@@ -71,4 +85,4 @@ $(window).on("load", function() {
             $('#results-table').append(start_row+name+server+sr+role+lvl+platform+language+mature+comp+mic+end_row); 
         });
     });
-});
+};
