@@ -16,9 +16,8 @@ $LVL_DEFAULT = 0;
 include_once("playerdb.php"); // $playerdb
 include_once("constants.php"); // constants
 
-
-//$cookie_values
-//setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
+$cookie_values
+setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
 if(isset($_POST['username'])
     && isset($_POST['server'])
@@ -117,7 +116,7 @@ if(isset($_POST['username'])
     }
 
 	//save values to cookie
-	//$cookie_values = $values
+	$cookie_values = $values
     $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
     $query = $playerdb->prepare($sql);
     $query->execute();
@@ -127,13 +126,15 @@ if(isset($_POST['username'])
     //  data insert.
    
 
-
-
    header("Location:../");
 }
 else{
     echo "Error: Please fill out all required fields";
 }/*else{
+=======
+    header("Location:../");
+}else{
+>>>>>>> e72f095b8bb8a5e3428f602e30ff20fa5a9164bf
 	if(!isset($_COOKIE[$cookie_values])) {
 		//if values is saved in a cookie use $cookie_values
 		$fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
@@ -142,7 +143,7 @@ else{
 		$query = $playerdb->prepare($sql);
 		$query->execute();
 	}
-}*/
+}
 
 ?>
 <?php
