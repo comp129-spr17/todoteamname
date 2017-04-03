@@ -48,7 +48,7 @@ $(window).on("load", function() {
 
 // Function to build the table with the data passed in via PHP GET as JSON
 function build_table() {
-    $.getJSON('/OWLFGtest/todoteamname/php/get_player_data.php', function(players) {
+    $.getJSON('/php/get_player_data.php', function(players) {
         $.each(players, function(key, val) {
             var start_row='<tr id="found-player">';
             var name='<td style=width:25%>'+ val.Name +'</td>';
