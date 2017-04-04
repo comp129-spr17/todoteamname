@@ -7,17 +7,11 @@
  */
 
 
-
-
-// CONSTANTS:
-$SR_DEFAULT = 0;
-$LVL_DEFAULT = 0;
-
 include_once("playerdb.php"); // $playerdb
 include_once("constants.php"); // constants
 
-$cookie_values
-setcookie($cookie_values time() + (86400 * 30), "/"); // 86400 = 1 day cookie
+//$cookie_values
+setcookie($cookie_values, time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
 if(isset($_POST['username'])
     && isset($_POST['server'])
@@ -32,7 +26,8 @@ if(isset($_POST['username'])
     && !empty($_POST['sr'])
     && !empty($_POST['level'])
     && !empty($_POST['platform'])
-    && !empty($_POST['role'])){
+    && !empty($_POST['role'])
+){
 
     setcookie('username', $_POST['username'],time()+3600, '/');
     setcookie('server', $_POST['server'],time()+3600,'/');
@@ -116,7 +111,7 @@ if(isset($_POST['username'])
     }
 
 	//save values to cookie
-	$cookie_values = $values
+	$cookie_values = $values;
     $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
     $query = $playerdb->prepare($sql);
     $query->execute();
