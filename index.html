@@ -1,5 +1,7 @@
 <!doctype html>
 <?php
+include_once("php/constants.php"); // arrays for filling out dropdowns
+
 if ((!isset($_COOKIE['username'])||empty($_COOKIE['username']))
 && (!isset($_COOKIE['server'])||empty($_COOKIE['server']))
     && (!isset($_COOKIE['language'])||empty($_COOKIE['language']))
@@ -29,6 +31,9 @@ if (!isset($_COOKIE['mat'])||empty($_COOKIE['mat'])){
 if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 	setcookie('comp',"1",time()+3600, '/');
 }
+
+
+
 ?>
 <html>
 	<head>
@@ -202,14 +207,19 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 								<div class="form-group" id="modal-form">
 									<label for="">Username*</label>
 									<!--Use username cookie-->
-									<?php echo (($_COOKIE['username']!='1')?'
+									<?php 
+                                        if($_COOKIE['username'] != '1'){
+                                    ?>
 									<input 
                                         type="text" 
                                         class="form-control" 
                                         id=""
-                                        value="'.$_COOKIE['username'].'"
+                                        value="<?php echo $_COOKIE['username'];?>"
                                         name="username"
-                                    />': '
+                                    />
+                                    <?php
+                                        }else{
+                                    ?>
                                     <input 
                                         
                                    		type="text" 
@@ -218,17 +228,39 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
                                         placeholder="Username"
                                         name="username" 
                                     />
-                                    ');?>
+                                    <?php 
+                                        }
+                                    ?>
 								</div>
 							<!--Server-->
 								<div class="form-group" id="modal-form">
 									<label for="">Server*</label>
 									<select class="form-control" id="" name="server">
 										<!--Use server cookie-->
-										<option value=<?php if($_COOKIE['server']!='1'){ echo '"'.$_COOKIE['server'].'" selected>'.$_COOKIE['server'].'</option>';}else{echo '"" selected hidden>Select Server</option>';}?>
-										<option value="NA">NA</option>
-										<option value="EU">EU</option>
-										<option value="AS">AS</option>
+                                    <?php
+                                        if ($_COOKIE['server'] === '1'){
+                                    ?>
+                                    <option value="" selected hidden>Select Server</option>
+                                    <?php
+                                        foreach ($servers as $ser){
+                                    ?>
+                                    <option value="<?php echo $ser;?>"><?php echo $ser;?></option>
+                                    <?php
+                                        }
+                                    }else{
+                                        foreach ($servers as $ser){
+                                    ?>
+                                    <option value="<?php echo $ser;?>"
+                                    <?php
+                                            if ($_COOKIE['server'] === $ser){
+                                                echo ' selected ';
+                                            }
+                                    ?>
+                                        ><?php echo $ser;?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
 									</select>
 								</div>
 							<!--Language-->
@@ -236,40 +268,57 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 									<label for="">Language*</label>
 									<select class="form-control" id="" name="language">
 										<!--Use language cookie-->
-										<option value=<?php if($_COOKIE['language']!='1'){ echo '"'.$_COOKIE['language'].'" selected>'.$_COOKIE['language'].'</option>';}else{echo '"" selected hidden>Select Language</option>';}?>
-										<option value="English">English</option>
-										<option value="Español(EU)">Español(EU)</option>
-										<option value="Español(AL)">Español(AL)</option>
-										<option value="Italiano">Italiano</option>
-										<option value="Русский">Русский</option>
-										<option value="Polski">Polski</option>
-										<option value="Français">Français</option>
-										<option value="Deutsch">Deutsch</option>
-										<option value="Português">Português</option>
-										<option value="日本語">日本語</option>
-										<option value="한국어">한국어</option>
-										<option value="简体中文">简体中文</option>
-										<option value="繁體中文">繁體中文</option>
+                                        <?php
+                                        if ($_COOKIE['language'] === '1'){
+                                        ?>
+                                        <option value="" selected hidden>Select Language</option>
+                                        <?php
+                                            foreach ($languages as $lang){
+                                        ?>
+                                        <option value="<?php echo $lang;?>"><?php echo $lang;?></option>
+                                        <?php
+                                            }
+                                        }else{
+                                            foreach ($languages as $lang){
+                                        ?>
+                                        <option value="<?php echo $lang;?>"
+                                        <?php
+                                                if ($_COOKIE['language'] === $lang){
+                                                    echo ' selected ';
+                                                }
+                                        ?>
+                                            ><?php echo $lang;?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
 									</select>
 								</div>
 							<!--SR rank-->
 								<div class="form-group" id="modal-form">
 									<label for="">SR Rank</label><br>
 									<!--Use sr cookie-->
-									<?php echo (($_COOKIE['sr']=='1')?'
+									<?php 
+                                        if ($_COOKIE['sr']==='1'){
+                                    ?>
 									<input id="sr-slide-listme" 
 									data-slider-id="input-slider" 
 									type="" data-slider-min="0" 
 									data-slider-max="5000" data-slider-step="100" 
 									name="sr"
-									data-slider-value= "2500" />':'
+									data-slider-value= "2500" />
+                                    <?php
+                                        }else{
+                                    ?>
 									<input id="sr-slide-listme" 
 									data-slider-id="input-slider" 
 									type="" data-slider-min="0" 
 									data-slider-max="5000" data-slider-step="100" 
 									name="sr"
-									data-slider-value="'.$_COOKIE['sr'].'"/>
-									');?>
+                                    data-slider-value="<?php echo $_COOKIE['sr'];?>"/>
+									<?php
+                                        }
+                                    ?>
 									
 									
 								</div>
@@ -277,23 +326,29 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 								<div class="form-group" id="modal-form">
 									<label for="">Level</label><br>
 									<!--Use level cookie-->
-									<?php echo (($_COOKIE['level']=='1')?
-									'<input id="lvl-slide-listme" 
+									<?php 
+                                        if ($_COOKIE['level']==='1'){
+                                    ?>
+									<input id="lvl-slide-listme" 
 									data-slider-id="input-slider"
 									type="" data-slider-min="0"
 									data-slider-max="2400"
 									data-slider-step="50"
 									name="level"
-									data-slider-value="200" />':
-									'<input id="lvl-slide-listme" 
+									data-slider-value="200" />
+                                    <?php
+                                         }else{
+                                    ?>
+									<input id="lvl-slide-listme" 
 									data-slider-id="input-slider"
 									type="" data-slider-min="0"
 									data-slider-max="2400"
 									data-slider-step="50"
 									name="level"
-									data-slider-value="'.$_COOKIE['level'].'" />
-									');?>
-									
+                                    data-slider-value="<?php echo $_COOKIE['level'];?>" />
+									<?php
+                                        }
+                                    ?>
 									
 								</div>
 							<!--Role-->
@@ -301,10 +356,30 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 									<label for="">Role / Position*</label>
 									<select class="form-control" id="" name="role">
 										<!--Use role cookie-->
-										<option value= <?php if($_COOKIE['role']!='1'){ echo '"'.$_COOKIE['role'].'" selected>'.$_COOKIE['role'].'</option>';}else{echo '"" selected hidden>Select Role</option>';}?>
-										<option value="DPS">DPS</option>
-										<option value="Tank">Tank</option>
-										<option value="Support">Support</option>
+                                        <?php
+                                        if ($_COOKIE['role'] === '1'){
+                                        ?>
+                                        <option value="" selected hidden>Select Role</option>
+                                        <?php
+                                            foreach ($roles as $rol){
+                                        ?>
+                                        <option value="<?php echo $rol;?>"><?php echo $rol;?></option>
+                                        <?php
+                                            }
+                                        }else{
+                                            foreach ($roles as $rol){
+                                        ?>
+                                        <option value="<?php echo $rol;?>"
+                                        <?php
+                                                if ($_COOKIE['role'] === $rol){
+                                                    echo 'selected';
+                                                }
+                                        ?>
+                                            ><?php echo $rol;?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
 									</select>
 								</div>
 							<!--Platform-->
@@ -312,10 +387,30 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 									<label for="">Platform*</label>
 									<select class="form-control" id="" name="platform">
 										<!--Use platform Cookie-->
-										<option value=<?php if($_COOKIE['platform']!='1'){ echo '"'.$_COOKIE['platform'].'" selected>'.$_COOKIE['platform'].'</option>';}else{echo '"" selected hidden>Select Platform</option>';}?>
-										<option value="XBOX">Xbox One</option>
-										<option value="PS4">PS4</option>
-										<option value="PC">PC</option>
+                                        <?php
+                                        if ($_COOKIE['platform'] === '1'){
+                                        ?>
+                                        <option value="" selected hidden>Select Platform</option>
+                                        <?php
+                                            foreach ($platforms as $plat){
+                                        ?>
+                                        <option value="<?php echo $plat;?>"><?php echo $plat;?></option>
+                                        <?php
+                                            }
+                                        }else{
+                                            foreach ($platforms as $plat){
+                                        ?>
+                                        <option value="<?php echo $plat;?>"
+                                        <?php
+                                                if ($_COOKIE['platform'] === $plat){
+                                                    echo ' selected ';
+                                                }
+                                        ?>
+                                            ><?php echo $plat;?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
 									</select>
 								</div>
 							<!--Group Size-->
