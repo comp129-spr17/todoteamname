@@ -1,5 +1,10 @@
 /*file for adding our own styles (colors, fonts, etc.) to bootstrap and HTML elements*/
 
+/*@font-face {
+    font-family: 'OWLFG';
+    src: 'fonts/font.ttf';
+}*/
+
 html {
 	font-family: Arial, sans-serif;
     width: 100%;
@@ -10,18 +15,35 @@ body {
     width: 100%;
     height: 100%;
     padding-top: 50px;
-
+    padding-bottom: 50px;
   }
 
 .active:hover {
 	/*color:;*/
 }
 
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #f8f8f8;
+}
+
+.navbar-default .navbar-brand {
+    color: #f8f8f8;
+    /*font-family: OWLFG;*/
+}
+
+.nav .navbar-nav {
+    color: #f8f8f8;
+}
+
+.navbar-default .navbar-nav {
+    border-left: 5px solid #FF6600;
+    border-right: 5px solid #FF6600;
+}
+
 .navbar-default .navbar-nav > .active > a {
-    color: #2F2526;
-    background-color:#FF6600;
+    color: #f8f8f8;
+    background-color:#2F2526;
 	font-weight: bold;
-    
 }
 
 .navbar-default {
@@ -35,7 +57,13 @@ body {
     width: 100%;
 }
 
+#preferences-container {
+    background-color: #000000;
+    width: 100%;
+} 
+
 #preferences-menu {
+    margin: 0 auto;
     width: 100%;
 	min-height: 33%;
     height:auto !important; /* cross-browser */
@@ -49,6 +77,7 @@ body {
 }
 
 #refine-button {
+    border-radius: 0px;
     float: right;
     background-color: #FF6600;
 }
@@ -57,8 +86,15 @@ body {
     background-color: #e65c00; 
 }
 
-#add-user {
+#add-user-container {
+    margin: 0 auto;
     height: 15%;
+    width: 100%;
+    background-color: #000000;
+}
+#add-user {
+    background-color: #fff;
+    height: 100%;
     width: 100%;
 }
 
@@ -67,7 +103,8 @@ body {
     top: 40%;
     left: 5%;
     background-color: #FF6600;
-    color: #2F2526;
+    color: #f8f8f8;
+    border-radius: 0px;
 }
 
 #list-me:hover {
@@ -91,11 +128,18 @@ body {
 #results {
     height: 100%;
     width: 100%;
+    background-color: #000000;
 }
 
 #results-div {
+    background-color: #fff;
     max-height: 85%;
     height: 100%;
+}
+
+#results-label {
+    color: #f8f8f8;
+    background-color: #e65c00;
 }
 
 #results-table {
@@ -147,4 +191,29 @@ td {
 
 #input-slider .slider-handle {
 	background: #e65c00;
+}
+
+#bottom-page {
+    color: #f8f8f8;
+    border-top: 5px solid  #FF6600;
+    background-color: #000000;
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+}
+
+#bottom-page img {
+    background: transparent;
+    border: 0px;
+    width: 45px;
+    height: 45px;
+}
+
+#footer-image {
+    padding-right: 0px;
+}
+
+#footer-name {
+    padding-left: 0px;
 }

@@ -57,139 +57,141 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href ="#" class="navbar-brand">OverWatchLFG</a>
+					<a href ="#" class="navbar-brand">OVERWATCHLFG</a>
 					<button id="small-window-menu" class="navbar-toggle" data-toggle="collapse" data-target=".nav-data-collapsed" class="navbar-toggle collapsed">Menu <span class="caret"></span>
 					</button>
 				</div>
 				<div class="collapse navbar-collapse nav-data-collapsed" style="height:auto">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Contact</a></li>
+						<li class="active"><a href="#">HOME</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div id="page" class="container-fluid col-md-12">
 	<!-- Preferences Div -->
-			<div id="preferences-menu" class="container-fluid col-md-12">
-				<h3>Preferences</h3>
-				<form id="filter-player-form" class="container-fluid col-md-12" method="post">
-				<!--Server drop down-->
-					<div class="form-group container-fluid col-md-6">
-						<label for="">Server</label>
-						<select class="form-control" id="" name="server_f">
-							<option value="" selected>Select Server</option>
-							<option value="NA">NA</option>
-							<option value="EU">EU</option>
-							<option value="AS">AS</option>
-						</select>
-					</div>
-				<!--Language drop down-->
-					<div class="form-group container-fluid col-md-6">
-						<label for="">Language</label>
-						<select class="form-control" id="" name="language_f">
-							<option value="" selected>Select Language</option>
-							<option value="English">English</option>
-							<option value="Español(EU)">Español(EU)</option>
-							<option value="Español(AL)">Español(AL)</option>
-							<option value="Italiano">Italiano</option>
-							<option value="Русский">Русский</option>
-							<option value="Polski">Polski</option>
-							<option value="Français">Français</option>
-							<option value="Deutsch">Deutsch</option>
-							<option value="Português">Português</option>
-							<option value="日本語">日本語</option>
-							<option value="한국어">한국어</option>
-							<option value="简体中文">简体中文</option>
-							<option value="繁體中文">繁體中文</option>
-						</select>
-					</div>
-					<!--Role Dropdown-->
-					<div class="form-group container-fluid col-md-6">
-						<label for="">Role / Position</label>
-						<select class="form-control" id="" name="role_f">
-							<option value="" selected>Select Role</option>
-							<option value="DPS">DPS</option>
-							<option value="Tank">Tank</option>
-							<option value="Support">Support</option>
-						</select>
-					</div>
-				<!--Platform Dropdown-->
-					<div class="form-group container-fluid col-md-6">
-						<label for="">Platform</label>
-						<select class="form-control" id="" name="platform_f">
-							<option value="" selected>Select Platform</option>
-							<option value="XBOX">Xbox One</option>
-							<option value="PS4">PS4</option>
-							<option value="PC">PC</option>
-						</select>
-					</div>
-				<!--SR Rank Slider-->
-					<div class="container-fluid col-md-3">
-						<label for="points">SR Rank</label><br>
-						<input id="sr-slide" 
-						data-slider-id='input-slider' 
-						type="text" data-slider-min="0" 
-						data-slider-max="5000" data-slider-step="100" 
-						data-slider-value="[0,5000]" 
-						name="sr_f"
-						/>
-					</div>
-				<!--Level Slider-->
-					<div class="container-fluid col-md-3">
-						<label for="points">Level</label><br>
-						<input id="lvl-slide" 
-						data-slider-id='input-slider' 
-						type="text" data-slider-min="0" 
-						data-slider-max="2400" 
-						data-slider-step="50" 
-						data-slider-value="[0,2400]" 
-						name="level_f"
-						/>
-					</div>
-					<!--
-					<div class="form-group">
-						<label for="">Group Size</label>
-						<select class="form-control" id="" name="gSize_f">
-							<option value="" selected hidden>Select Group Size</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-						</select>
-					</div>
-					-->
-				<!--Mic-->
-					<div class="checkbox container-fluid col-md-2" id="modal-form" name="mic_f">
-						<label><input 
-                                     name ="mic_f"
-                                     type ="checkbox" value="TRUE">Microphone</label>
-					</div>
-				<!--Is Competitive Button-->
-					<div class="checkbox container-fluid col-md-2" id="modal-form" name="iscompetitive_f">
-						<label><input 
-                                     name = "comp_f"
-                                     type ="checkbox" value="TRUE">Competitive</label>	
-					</div>
-				<!--Is Mature Button-->
-					<div class="checkbox container-fluid col-md-2" id="modal-form" name="ismature_f">
-						<label><input 
-                                     name = "mat_f"
-                                     type ="checkbox" value="TRUE">Mature</label>
-					</div>
+			<div id="preferences-container" class="container-fluid col-md-12">
+				<div id="preferences-menu" class="container-fluid col-md-12">
+					<h3>FILTER</h3>
+					<form id="filter-player-form" class="container-fluid col-md-12" method="post">
+					<!--Server drop down-->
+						<div class="form-group container-fluid col-md-6">
+							<label for="">Server</label>
+							<select class="form-control" id="" name="server_f">
+								<option value="" selected>Select Server</option>
+								<option value="NA">NA</option>
+								<option value="EU">EU</option>
+								<option value="AS">AS</option>
+							</select>
+						</div>
+					<!--Language drop down-->
+						<div class="form-group container-fluid col-md-6">
+							<label for="">Language</label>
+							<select class="form-control" id="" name="language_f">
+								<option value="" selected>Select Language</option>
+								<option value="English">English</option>
+								<option value="Español(EU)">Español(EU)</option>
+								<option value="Español(AL)">Español(AL)</option>
+								<option value="Italiano">Italiano</option>
+								<option value="Русский">Русский</option>
+								<option value="Polski">Polski</option>
+								<option value="Français">Français</option>
+								<option value="Deutsch">Deutsch</option>
+								<option value="Português">Português</option>
+								<option value="日本語">日本語</option>
+								<option value="한국어">한국어</option>
+								<option value="简体中文">简体中文</option>
+								<option value="繁體中文">繁體中文</option>
+							</select>
+						</div>
+						<!--Role Dropdown-->
+						<div class="form-group container-fluid col-md-6">
+							<label for="">Role / Position</label>
+							<select class="form-control" id="" name="role_f">
+								<option value="" selected>Select Role</option>
+								<option value="DPS">DPS</option>
+								<option value="Tank">Tank</option>
+								<option value="Support">Support</option>
+							</select>
+						</div>
+					<!--Platform Dropdown-->
+						<div class="form-group container-fluid col-md-6">
+							<label for="">Platform</label>
+							<select class="form-control" id="" name="platform_f">
+								<option value="" selected>Select Platform</option>
+								<option value="XBOX">Xbox One</option>
+								<option value="PS4">PS4</option>
+								<option value="PC">PC</option>
+							</select>
+						</div>
+					<!--SR Rank Slider-->
+						<div class="container-fluid col-md-3">
+							<label for="points">SR Rank</label><br>
+							<input id="sr-slide" 
+							data-slider-id='input-slider' 
+							type="text" data-slider-min="0" 
+							data-slider-max="5000" data-slider-step="100" 
+							data-slider-value="[0,5000]" 
+							name="sr_f"
+							/>
+						</div>
+					<!--Level Slider-->
+						<div class="container-fluid col-md-3">
+							<label for="points">Level</label><br>
+							<input id="lvl-slide" 
+							data-slider-id='input-slider' 
+							type="text" data-slider-min="0" 
+							data-slider-max="2400" 
+							data-slider-step="50" 
+							data-slider-value="[0,2400]" 
+							name="level_f"
+							/>
+						</div>
+						<!--
+						<div class="form-group">
+							<label for="">Group Size</label>
+							<select class="form-control" id="" name="gSize_f">
+								<option value="" selected hidden>Select Group Size</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+						-->
+					<!--Mic-->
+						<div class="checkbox container-fluid col-md-2" id="modal-form" name="mic_f">
+							<label><input 
+										name ="mic_f"
+										type ="checkbox" value="TRUE">Microphone</label>
+						</div>
+					<!--Is Competitive Button-->
+						<div class="checkbox container-fluid col-md-2" id="modal-form" name="iscompetitive_f">
+							<label><input 
+										name = "comp_f"
+										type ="checkbox" value="TRUE">Competitive</label>	
+						</div>
+					<!--Is Mature Button-->
+						<div class="checkbox container-fluid col-md-2" id="modal-form" name="ismature_f">
+							<label><input 
+										name = "mat_f"
+										type ="checkbox" value="TRUE">Mature</label>
+						</div>
 
-					<a class="btn btn-primary btn-lg" id="refine-button" onclick="filter()">Refine</a>
+						<a class="btn btn-primary btn-lg" id="refine-button" onclick="filter()">REFINE</a>
 
-				</form>
+					</form>
+				</div>
 			</div>
 
 	<!-- Add user Div -->
-			<div id="add-user" class="container-fluid col-md-12">
-				<button type="button" class="btn btn-info btn-lg" id="list-me" data-toggle="modal" data-target="#list-me-modal"><span class="glyphicon glyphicon-plus"></span>List me</button>
-				<button type="button" class="btn btn-info btn-lg" id="refresh-button"><span class="glyphicon glyphicon-refresh"></span></button>
+			<div id="add-user-container" class="container-fluid col-md-12">
+				<div id="add-user" class="container-fluid col-md-12">
+					<button type="button" class="btn btn-info btn-lg" id="list-me" data-toggle="modal" data-target="#list-me-modal"><span class="glyphicon glyphicon-plus"></span>LIST ME</button>
+					<button type="button" class="btn btn-info btn-lg" id="refresh-button"><span class="glyphicon glyphicon-refresh"></span></button>
+				</div>
 			</div>
 			<!--  Start of the Modal -->
 			<div id="list-me-modal" class="modal fade" role="dialog">
@@ -198,7 +200,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 					<div class="modal-content">
 						<div class="modal-header" id="modal-form-header">
 							<button type="button" class="close" data-dismiss="modal" id="modal-exit">&times;</button>
-							<h4 class="modal-title">List Me</h4>
+							<h4 class="modal-title">LIST ME</h4>
 						</div>
 						<div class="modal-body">
 							<form action="php/player_add.php" id="player-add-form" method="post">
@@ -455,7 +457,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 						<p class="text-center">* = required field</p>
 
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" id="submit-to-database" data-dismiss="modal">Submit</button>
+							<button type="button" class="btn btn-default" id="submit-to-database" data-dismiss="modal">SUBMIT</button>
 						</div>
 					</div>
 				</div>
@@ -464,8 +466,10 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 
 			<!-- Results Div -->
 			<div id="results" class="container-fluid col-md-12">
-				<h3>Results</h3>
-				<div id="results-div" class="table-responsive pre-scrollable">
+				<div id="results-label" class="container-fluid col-md-12">
+					<h3>RESULTS</h3>
+				</div>
+				<div id="results-div" class="table-responsive pre-scrollable container-fluid col-md-12">
 					<!-- maybe a search feature? -->
 					<table id="results-table" class="table">
 						<thead>
@@ -489,4 +493,12 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 			</div>
 		</div>
 	</body>
+	<footer id="bottom-page" class="container-fluid col-md-12">
+		<div id="footer-image" class="container-fluid col-md-1">
+			<img src="assets/overwatch_logo.png" class="img-thumbnail">
+		</div>
+		<div id="footer-name" class="container-fluid col-md-3">
+			<h4>FINDOVERWATCHPLAYERFOR.ME</h4>
+		</div>
+	</footer>
 </html>
