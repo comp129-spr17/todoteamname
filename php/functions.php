@@ -20,6 +20,7 @@ include_once("constants.php");
  *  @returns the username after being clean
  */
 function clean_username($username){
+    return str_replace("#", "-", $username);
 }
 
 /*
