@@ -36,15 +36,20 @@ body {
 }
 
 #preferences-menu {
-    float: left;
-    width: 25%;
-	min-height: 100%;
+    width: 100%;
+	min-height: 33%;
     height:auto !important; /* cross-browser */
     height: 100%;           /* cross-browser */;
     background-color: #f8f8f8;
 }
 
+#filter-player-form .form-group {
+    min-width: 300px;
+    width: 50%;
+}
+
 #refine-button {
+    float: right;
     background-color: #FF6600;
 }
 
@@ -53,9 +58,8 @@ body {
 }
 
 #add-user {
-    float: right;
-    height: 20%;
-    width: 75%;
+    height: 15%;
+    width: 100%;
 }
 
 #list-me {
@@ -85,9 +89,8 @@ body {
 }
 
 #results {
-    float: right;
-    height: 80%;
-    width: 75%;
+    height: 100%;
+    width: 100%;
 }
 
 #results-div {
@@ -96,7 +99,8 @@ body {
 }
 
 #results-table {
-    /**/
+    margin: 0 auto;
+    width: 80%;
 }
 
 #modal-form-header {
