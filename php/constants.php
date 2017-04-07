@@ -12,6 +12,7 @@
 $SR_DEFAULT = 0;
 $LVL_DEFAULT = 1;
 
+// constants for main page
 $servers = [
     0 => "NA",
     1 => "EU",
@@ -45,4 +46,9 @@ $platforms = [
     1 => "PS4",
     2 => "PC",
 ];
+
+
+// regex for username validation
+$username_regex = "/^\p{L}[\p{L}0-9]{2,11}#[0-9]{4}$/";
+
 ?>
