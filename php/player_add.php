@@ -10,6 +10,7 @@
 
 include_once("playerdb.php"); // $playerdb
 include_once("constants.php"); // constants
+include_once("functions.php"); // functions
 
 //$cookie_values
 setcookie($cookie_values, time() + (86400 * 30), "/"); // 86400 = 1 day cookie
@@ -38,18 +39,30 @@ if(isset($_POST['username'])
     setcookie('platform', $_POST['platform'],time()+3600, '/');
     setcookie('role',$_POST['role'],time()+3600, '/');
 
+    $username = $_POST['username'];
 
-   
-    // check if everything has a value
-    // now we can do an insert
+    // username validation
+    if(!is_username_valid($username)){
+?>
+<html><head><title>ERROR</title></head><body>
+<h6 style="color:#8B0000;">Error: Your username is invalid</h6>
+<p>Returning to main page...</p>
+</body></html>
+<?php
+        sleep(3);
+        header("Location:../");
+    }
 
+    // clean the username
+    $username = clean_username($username);
+    
     // sql injection rejection
     // (done by escaping single quotes)
     // we do all fields in case of POST spoofing
     // (except num fields and checkboxes)
     // num fields we check using is_numeric and is_int
     // checkboxes is just a set check, we supply boolean value
-    $username = str_replace("'", "''", $_POST['username']);
+    $username = str_replace("'", "''", $username);
     $server = str_replace("'", "''", $_POST['server']);
     $language = str_replace("'", "''", $_POST['language']);
     $role = str_replace("'", "''", $_POST['role']);
