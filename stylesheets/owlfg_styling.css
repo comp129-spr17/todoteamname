@@ -2,11 +2,11 @@
 
 /*@font-face {
     font-family: 'OWLFG';
-    src: 'fonts/font.ttf';
+    src: url();
 }*/
 
 html {
-	font-family: Arial, sans-serif;
+	font-family: "Arial, sans-serif";
     width: 100%;
     height: 100%;
 }
@@ -42,12 +42,12 @@ body {
 
 .navbar-default .navbar-nav > .active > a {
     color: #f8f8f8;
-    background-color:#2F2526;
+    background-color:#000000;
 	font-weight: bold;
 }
 
 .navbar-default {
-    background-color: #2F2526;
+    background-color: #000000;
     border-bottom: 5px solid #FF6600;
 }
 
@@ -68,7 +68,8 @@ body {
 	min-height: 33%;
     height:auto !important; /* cross-browser */
     height: 100%;           /* cross-browser */;
-    background-color: #f8f8f8;
+    background-color: #fff;
+    border-top: 15px solid #000000;
 }
 
 #filter-player-form .form-group {
@@ -93,18 +94,22 @@ body {
     background-color: #000000;
 }
 #add-user {
-    background-color: #fff;
+    border-top: 5px solid #2F2526;
+    border-bottom: 5px solid #2F2526;
+    /*background-color: #2F2526;*/
+    background-color: #000000;
     height: 100%;
     width: 100%;
 }
 
 #list-me {
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 5%;
     background-color: #FF6600;
     color: #f8f8f8;
     border-radius: 0px;
+    float: right;
 }
 
 #list-me:hover {
@@ -114,10 +119,10 @@ body {
 #refresh-button {
     position: absolute;
     border: 0px;
-    top: 80%;
+    top: 45%;
     right: 5%;
     background-color: transparent;
-    color: #2F2526;
+    color: #f8f8f8;
     padding: 0px;
 }
 
@@ -132,6 +137,7 @@ body {
 }
 
 #results-div {
+    border-bottom: 25px solid #000000;
     background-color: #fff;
     max-height: 85%;
     height: 100%;
