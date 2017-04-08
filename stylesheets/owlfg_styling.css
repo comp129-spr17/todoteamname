@@ -28,6 +28,10 @@ body {
     border-radius: 0 !important;
 }
 
+ .btn-noborder{
+  border:0px solid transparent; /* this was 1px earlier */
+ }
+
 .active:hover {
 	/*color:;*/
 }
