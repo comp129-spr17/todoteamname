@@ -53,6 +53,9 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css"/>
 	</head>
 	<body>
+	<!--This is the code for the lattice thing in front of the bg image-->
+	<div id="dot-matrix"></div>
+
 <!-- navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
@@ -79,7 +82,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 					<!--Server drop down-->
 						<div class="form-group container-fluid col-md-6">
 							<label for="">Server</label>
-							<select class="form-control" id="" name="server_f">
+							<select class="form-control sharp" id="" name="server_f">
 								<option value="" selected>Select Server</option>
 								<option value="NA">NA</option>
 								<option value="EU">EU</option>
@@ -89,7 +92,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 					<!--Language drop down-->
 						<div class="form-group container-fluid col-md-6">
 							<label for="">Language</label>
-							<select class="form-control" id="" name="language_f">
+							<select class="form-control sharp" id="" name="language_f">
 								<option value="" selected>Select Language</option>
 								<option value="English">English</option>
 								<option value="Español(EU)">Español(EU)</option>
@@ -109,7 +112,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 						<!--Role Dropdown-->
 						<div class="form-group container-fluid col-md-6">
 							<label for="">Role / Position</label>
-							<select class="form-control" id="" name="role_f">
+							<select class="form-control sharp" id="" name="role_f">
 								<option value="" selected>Select Role</option>
 								<option value="DPS">DPS</option>
 								<option value="Tank">Tank</option>
@@ -119,13 +122,27 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 					<!--Platform Dropdown-->
 						<div class="form-group container-fluid col-md-6">
 							<label for="">Platform</label>
-							<select class="form-control" id="" name="platform_f">
+							<select class="form-control sharp" id="" name="platform_f">
 								<option value="" selected>Select Platform</option>
 								<option value="XBOX">Xbox One</option>
 								<option value="PS4">PS4</option>
 								<option value="PC">PC</option>
 							</select>
 						</div>
+						<!--
+						<div class="form-group">
+							<label for="">Group Size</label>
+							<select class="form-control" id="" name="gSize_f">
+								<option value="" selected hidden>Select Group Size</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+						-->
 					<!--SR Rank Slider-->
 						<div class="container-fluid col-md-3">
 							<label for="points">SR Rank</label><br>
@@ -149,37 +166,30 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 							name="level_f"
 							/>
 						</div>
-						<!--
-						<div class="form-group">
-							<label for="">Group Size</label>
-							<select class="form-control" id="" name="gSize_f">
-								<option value="" selected hidden>Select Group Size</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-						-->
+
 					<!--Mic-->
 						<div class="checkbox container-fluid col-md-2" id="modal-form" name="mic_f">
-							<label><input 
-										name ="mic_f"
-										type ="checkbox" value="TRUE">Microphone</label>
+							<label style="font-size: 1.5em">
+							<input name ="mic_f" type ="checkbox" value="TRUE">
+							<span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+							<i class="fa fa-microphone" aria-hidden="true"></i>
+							</label>
 						</div>
 					<!--Is Competitive Button-->
-						<div class="checkbox container-fluid col-md-2" id="modal-form" name="iscompetitive_f">
-							<label><input 
-										name = "comp_f"
-										type ="checkbox" value="TRUE">Competitive</label>	
+						<div class="checkbox container-fluid col-md-2" id="modal-form" name="mic_f">
+							<label style="font-size: 1.5em">
+							<input name ="comp_f" type ="checkbox" value="TRUE">
+							<span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+							Competitive
+							</label>
 						</div>
 					<!--Is Mature Button-->
-						<div class="checkbox container-fluid col-md-2" id="modal-form" name="ismature_f">
-							<label><input 
-										name = "mat_f"
-										type ="checkbox" value="TRUE">Mature</label>
+						<div class="checkbox container-fluid col-md-2" id="modal-form" name="mic_f">
+							<label style="font-size: 1.5em">
+							<input name ="mat_f" type ="checkbox" value="TRUE">
+							<span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+							18+
+							</label>
 						</div>
 
 						<a class="btn btn-primary btn-lg" id="refine-button" onclick="filter()">REFINE</a>
@@ -192,7 +202,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 			<div id="add-user-container" class="container-fluid col-md-12">
 				<div id="add-user" class="container-fluid col-md-12">
 					<button type="button" class="btn btn-info btn-lg" id="list-me" data-toggle="modal" data-target="#list-me-modal"><span class="glyphicon glyphicon-plus"></span>LIST ME</button>
-					<button type="button" class="btn btn-info btn-lg" id="refresh-button"><span class="glyphicon glyphicon-refresh"></span></button>
+					<button type="button" class="btn btn-info btn-lg" id="refresh-button" onclick="filter()"><span class="glyphicon glyphicon-refresh"></span></button>
 				</div>
 			</div>
 			<!--  Start of the Modal -->
@@ -207,7 +217,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 						<div class="modal-body">
 							<form action="php/player_add.php" id="player-add-form" method="post">
 							<!--Username-->
-								<div class="form-group" id="modal-form">
+								<div class="form-group sharp" id="modal-form">
 									<label for="">Username*</label>
 									<!--Use username cookie-->
 									<?php 
@@ -215,7 +225,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
                                     ?>
 									<input 
                                         type="text" 
-                                        class="form-control" 
+                                        class="form-control sharp" 
                                         id=""
                                         value="<?php echo $_COOKIE['username'];?>"
                                         name="username"
@@ -226,7 +236,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
                                     <input 
                                         
                                    		type="text" 
-                                        class="form-control" 
+                                        class="form-control sharp" 
                                         id=""
                                         placeholder="Username"
                                         name="username" 
@@ -238,7 +248,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 							<!--Server-->
 								<div class="form-group" id="modal-form">
 									<label for="">Server*</label>
-									<select class="form-control" id="" name="server">
+									<select class="form-control sharp" id="" name="server">
 										<!--Use server cookie-->
                                     <?php
                                         if ($_COOKIE['server'] === '1'){
@@ -269,7 +279,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 							<!--Language-->
 								<div class="form-group" id="modal-form">
 									<label for="">Language*</label>
-									<select class="form-control" id="" name="language">
+									<select class="form-control sharp" id="" name="language">
 										<!--Use language cookie-->
                                         <?php
                                         if ($_COOKIE['language'] === '1'){
@@ -357,7 +367,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 							<!--Role-->
 								<div class="form-group" id="modal-form">
 									<label for="">Role / Position*</label>
-									<select class="form-control" id="" name="role">
+									<select class="form-control sharp" id="" name="role">
 										<!--Use role cookie-->
                                         <?php
                                         if ($_COOKIE['role'] === '1'){
@@ -388,7 +398,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 							<!--Platform-->
 								<div class="form-group" id="modal-form">
 									<label for="">Platform*</label>
-									<select class="form-control" id="" name="platform">
+									<select class="form-control sharp" id="" name="platform">
 										<!--Use platform Cookie-->
                                         <?php
                                         if ($_COOKIE['platform'] === '1'){
@@ -433,25 +443,31 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 								<div class="checkbox" id="modal-form" name="mic">
 									<label><input 
                                         name ="mic"
-                                        type ="checkbox" value="TRUE">Microphone</label>
+                                        type ="checkbox" value="TRUE">
+                                        <span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        Microphone</label>
 								</div>
 
 							<!--Competitive-->
 								<div class="checkbox" id="modal-form" name="iscompetitive">
 									<label><input 
                                         name = "comp"
-                                        type ="checkbox" value="TRUE">Competitive</label>	
+                                        type ="checkbox" value="TRUE">
+                                        <span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        Competitive</label>	
 								</div>
 							<!--Mature-->
 								<div class="checkbox" id="modal-form" name="ismature">
 									<label><input 
                                         name = "mat"
-                                        type ="checkbox" value="TRUE">Mature</label>
+                                        type ="checkbox" value="TRUE">
+                                        <span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                        Mature</label>
 								</div>
 							<!--Contact Info-->
 								<div class="form-group" id="modal-form">
 									<label for="comment">Contact Information:</label>
-									<textarea class="form-control" rows="3" id="Add contact information" name="contact" form="player-add-form"></textarea>
+									<textarea class="form-control sharp" rows="3" id="Add contact information" name="contact" form="player-add-form"></textarea>
 								</div>
 							</form>
 						</div>
@@ -459,7 +475,7 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 						<p class="text-center">* = required field</p>
 
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" id="submit-to-database" data-dismiss="modal">SUBMIT</button>
+							<button type="button" class="btn btn-default sharp" id="submit-to-database" data-dismiss="modal">SUBMIT</button>
 						</div>
 					</div>
 				</div>
