@@ -28,12 +28,28 @@ body {
     border-radius: 0 !important;
 }
 
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #f2f2f2;
+}
+
  .btn-noborder{
   border:0px solid transparent; /* this was 1px earlier */
  }
 
 .active:hover {
 	/*color:;*/
+}
+
+.rotate{
+    -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.rotate.down{
+    -moz-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    transform:rotate(90deg);
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -180,7 +196,7 @@ body {
 
 #results-table {
     margin: 0 auto;
-    width: 80%;
+    width: 95%;
 }
 
 #modal-form-header {
@@ -315,4 +331,22 @@ td {
 .checkbox label input[type="checkbox"]:disabled + .cr,
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
+}
+
+
+
+.table .unactive {
+    -webkit-transform: rotate(90deg);    
+    -moz-transform: rotate(90deg);        
+    -o-transform: rotate(90deg);          
+    -ms-transform: rotate(90deg);         
+    transform: rotate(90deg);             
+}
+
+.table .collapsed .unactive {
+    -webkit-transform: rotate(0deg);     
+    -moz-transform: rotate(0deg);        
+    -o-transform: rotate(0deg);          
+    -ms-transform: rotate(0deg);   
+    transform: rotate(0deg);       
 }
