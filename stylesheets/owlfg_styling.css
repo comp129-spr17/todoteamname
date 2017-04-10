@@ -177,6 +177,7 @@ body {
 }
 
 #results {
+    position: relative;
     height: 100%;
     width: 100%;
     
@@ -249,9 +250,8 @@ td {
     color: #f8f8f8;
     border-top: 5px solid  #f7931e;
     background-color: #0d0d0d;
-    position: fixed;
+    position: relative;
     height: 50px;
-    bottom: 0;
     width: 100%;
 }
 
