@@ -12,6 +12,7 @@ import urllib2
 import cookielib
 import argparse
 import os
+import sys
 
 #cmd line args
 parser = argparse.ArgumentParser(description='Fetch URLs of Overwatch profiles from OWAPI')
@@ -34,7 +35,7 @@ req = urllib2.Request(site, headers=hdr)
 try:
     page = urllib2.urlopen(req)
 except urllib2.HTTPError, e:
-    print e.fp.read()
+    sys.exit("profile " + args.userName + " not found!")
 
 #read JSON and print(for now)
 content = page.read()
