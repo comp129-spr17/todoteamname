@@ -1,0 +1,23 @@
+<?php
+/* TEST AREA FOR getUserFromApi.py 
+    //system("whoami");
+
+    //create shell cmd to run script with bnetName as Arg
+    $cmd = escapeshellcmd("sudo -u ubuntu /var/www/html/python/getUserFromApi.py ");
+    $bnetName = 'SquarePlanet-1416';
+    $cmd .= $bnetName;
+
+    //run script with cmd
+    $output = shell_exec($cmd);
+
+    //substring result and check if it is an error
+    $possibleError = substr($output, 2, 5);
+    if (strcmp($possibleError, "error") == 0)
+        echo "\nUsername " . $bnetName . " was not found! Please try again.\n";
+    else
+        //if not we echo the output(for now)
+        echo $output;
+
+     TEST AREA */
+
+     ?>
