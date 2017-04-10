@@ -2,11 +2,11 @@
 
 /*@font-face {
     font-family: 'OWLFG';
-    src: 'fonts/font.ttf';
+    src: url();
 }*/
 
 html {
-	font-family: Arial, sans-serif;
+	font-family: "Arial, sans-serif";
     width: 100%;
     height: 100%;
 }
@@ -16,10 +16,40 @@ body {
     height: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+
+    background: url(../assets/winston.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
   }
+
+
+.sharp {
+    border-radius: 0 !important;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #f2f2f2;
+}
+
+ .btn-noborder{
+  border:0px solid transparent; /* this was 1px earlier */
+ }
 
 .active:hover {
 	/*color:;*/
+}
+
+.rotate{
+    -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.rotate.down{
+    -moz-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    transform:rotate(90deg);
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -36,19 +66,35 @@ body {
 }
 
 .navbar-default .navbar-nav {
-    border-left: 5px solid #FF6600;
-    border-right: 5px solid #FF6600;
+    border-left: 5px solid #f7931e;
+    border-right: 5px solid #f7931e;
 }
 
 .navbar-default .navbar-nav > .active > a {
     color: #f8f8f8;
-    background-color:#2F2526;
+    background-color: #0d0d0d;
+    /*background-color: #405275;*/
+    background-color: hsla(220, 29%, 35%, 0.00);
+    /*background-color: hsla(0, 0%, 5%, 0);*/
 	font-weight: bold;
 }
 
 .navbar-default {
-    background-color: #2F2526;
-    border-bottom: 5px solid #FF6600;
+    font-weight: bold;
+    background-color: #0d0d0d;
+    /*background-color: #405275;*/
+    background-color: hsla(220, 29%, 35%, 0.95);
+    /*background-color: hsla(0, 0%, 5%, 0.75);*/
+    border-bottom: 5px solid #f7931e;
+}
+
+#dot-matrix {
+    background: url(http://s14.directupload.net/images/111129/44ga9qid.png);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -1;
 }
 
 #page {
@@ -58,7 +104,7 @@ body {
 }
 
 #preferences-container {
-    background-color: #000000;
+    
     width: 100%;
 } 
 
@@ -68,7 +114,8 @@ body {
 	min-height: 33%;
     height:auto !important; /* cross-browser */
     height: 100%;           /* cross-browser */;
-    background-color: #f8f8f8;
+    background-color: #fff;
+    border-top: 15px;
 }
 
 #filter-player-form .form-group {
@@ -79,59 +126,65 @@ body {
 #refine-button {
     border-radius: 0px;
     float: right;
-    background-color: #FF6600;
+    background-color: #f7931e;
 }
 
 #refine-button:hover {
-    background-color: #e65c00; 
+    background-color: #ff9c00; 
 }
 
 #add-user-container {
     margin: 0 auto;
     height: 15%;
     width: 100%;
-    background-color: #000000;
+    
 }
 #add-user {
-    background-color: #fff;
+    border-top: 5px;
+    border-bottom: 5px;
+    /*background-color: #2F2526;*/
+
     height: 100%;
     width: 100%;
 }
 
 #list-me {
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 5%;
-    background-color: #FF6600;
+    background-color: #f7931e;
     color: #f8f8f8;
     border-radius: 0px;
+    float: right;
 }
 
 #list-me:hover {
-    background-color: #e65c00; 
+    background-color: #ff9c00; 
 }
 
 #refresh-button {
     position: absolute;
     border: 0px;
-    top: 80%;
+    top: 45%;
     right: 5%;
     background-color: transparent;
-    color: #2F2526;
+    color: #f8f8f8;
     padding: 0px;
 }
 
 #refresh-button:hover {
-    color: rgba(0,0,0,0.5);
+    color: rgba(229,229,229,0.5);
 }
 
 #results {
+    position: relative;
     height: 100%;
     width: 100%;
-    background-color: #000000;
+    
 }
 
 #results-div {
+    border-bottom: 25px;
     background-color: #fff;
     max-height: 85%;
     height: 100%;
@@ -139,16 +192,16 @@ body {
 
 #results-label {
     color: #f8f8f8;
-    background-color: #e65c00;
+    background-color: #f7931e;
 }
 
 #results-table {
     margin: 0 auto;
-    width: 80%;
+    width: 95%;
 }
 
 #modal-form-header {
-    background-color: #2F2526;
+    background-color: #f7931e;
     text-align: center;
     color: #f7f7f7;
 }
@@ -190,16 +243,15 @@ td {
 }
 
 #input-slider .slider-handle {
-	background: #e65c00;
+	background: #f7931e;
 }
 
 #bottom-page {
     color: #f8f8f8;
-    border-top: 5px solid  #FF6600;
-    background-color: #000000;
-    position: fixed;
+    border-top: 5px solid  #f7931e;
+    background-color: #0d0d0d;
+    position: relative;
     height: 50px;
-    bottom: 0;
     width: 100%;
 }
 
@@ -216,4 +268,85 @@ td {
 
 #footer-name {
     padding-left: 0px;
+}
+
+
+
+
+/*************checkbox stuff*************/
+.checkbox label:after, 
+.radio label:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.checkbox .cr,
+.radio .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em;
+}
+
+.radio .cr {
+    border-radius: 50%;
+}
+
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+
+.radio .cr .cr-icon {
+    margin-left: 0.04em;
+}
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {
+    display: none;
+}
+
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled + .cr,
+.radio label input[type="radio"]:disabled + .cr {
+    opacity: .5;
+}
+
+
+
+.table .unactive {
+    -webkit-transform: rotate(90deg);    
+    -moz-transform: rotate(90deg);        
+    -o-transform: rotate(90deg);          
+    -ms-transform: rotate(90deg);         
+    transform: rotate(90deg);             
+}
+
+.table .collapsed .unactive {
+    -webkit-transform: rotate(0deg);     
+    -moz-transform: rotate(0deg);        
+    -o-transform: rotate(0deg);          
+    -ms-transform: rotate(0deg);   
+    transform: rotate(0deg);       
 }

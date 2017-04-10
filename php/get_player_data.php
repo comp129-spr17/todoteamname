@@ -162,15 +162,18 @@ if (isset($_POST['mat_f']) && !empty($_POST['mat_f'])){
 
 // Set up the SQL query
 if ($postData){
-	$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition;
+	$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY creationTime DESC";
 }
 else{
-	$sql = "SELECT DISTINCT * FROM Players";
+	$sql = "SELECT DISTINCT * FROM Players ORDER BY creationTime DESC";
 }
 
 
-
-//echo $sql;
+// $my_file = 'file.txt';
+// $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
+// $data = 'This is the data';
+// fwrite($handle, $sql);
+// echo $sql;
 
 
 
