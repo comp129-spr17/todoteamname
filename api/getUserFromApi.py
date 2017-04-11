@@ -13,6 +13,7 @@ import cookielib
 import argparse
 import os
 import sys
+import json
 
 #cmd line args
 parser = argparse.ArgumentParser(description='Fetch URLs of Overwatch profiles from OWAPI')
@@ -35,8 +36,25 @@ req = urllib2.Request(site, headers=hdr)
 try:
     page = urllib2.urlopen(req)
 except urllib2.HTTPError, e:
-    sys.exit("profile " + args.userName + " not found!")
+    sys.exit("\n" + "profile " + args.userName + " not found!" + "\n")
 
-#read JSON and print(for now)
+#parse and print JSON data
+#look for comp rank, level, and prestige
 content = page.read()
-print content
+j = json.loads(content)
+
+#LEVEL
+#levelDig is all digits except 1st digit of level data
+levelDig = j['us']['stats']['quickplay']['overall_stats']['level']
+#prestige is 1st digit, divided by 100
+prestige = j['us']['stats']['quickplay']['overall_stats']['prestige']
+#actualLvl is player's actual level
+actualLvl = (prestige*100) + levelDig
+
+#COMPETITIVE RANK
+rank = j['us']['stats']['competitive']['overall_stats']['comprank']
+
+print "\n" + "Returning player data for " + args.userName + "\n"
+print "Rank: " + (str)(rank)
+print "Level: " + (str)(actualLvl) + "\n"
+
