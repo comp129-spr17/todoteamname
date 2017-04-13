@@ -4,6 +4,9 @@
 accountGenerator/OWLFG_testData.sql
 accountGenerator/testData_expectedResults.txt
 
+# pdo file
+php/playerdb.php
+
 .DS_Store
 *.swp # vim
 
