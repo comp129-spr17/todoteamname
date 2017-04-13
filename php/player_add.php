@@ -46,11 +46,9 @@ if(isset($_POST['username'])
 ?>
 <html><head><title>ERROR</title></head><body>
 <h6 style="color:#8B0000;">Error: Your username is invalid</h6>
-<p>Returning to main page...</p>
 </body></html>
 <?php
-        sleep(3);
-        header("Location:../");
+        return;
     }
 
     // clean the username
