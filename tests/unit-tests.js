@@ -477,8 +477,8 @@ function run_tests() {
     ,
     'json');
 
-    // Test Micro Filter
-    var example_input = [
+    // Test Mic Filter
+    var input_for_mic_filter = [
         {
             name: "server_f",
             value: "",
@@ -517,7 +517,7 @@ function run_tests() {
         }
     ];
 
-    $.post('/OWLFGtest/todoteamname/tests/filter_test.php', input_for_servlang_filter, function(testData) {
+    $.post('/OWLFGtest/todoteamname/tests/filter_test.php', input_for_mic_filter, function(testData) {
         console.log("\nTesting Mic Filter...");
 
         // Mic filter test expected results
@@ -535,7 +535,7 @@ function run_tests() {
     'json');
 
 	//test competitive filter
-	var example_input = [
+	var input_for_competitive_filter = [
         {
             name: "server_f",
             value: "",
@@ -574,7 +574,7 @@ function run_tests() {
         }
     ];
 
-    $.post('/OWLFGtest/todoteamname/tests/filter_test.php', input_for_servlang_filter, function(testData) {
+    $.post('/OWLFGtest/todoteamname/tests/filter_test.php', input_for_competitive_filter, function(testData) {
         console.log("\nTesting Competitive Filter...");
 
         // Competitive filter test expected results
@@ -592,7 +592,7 @@ function run_tests() {
     'json');
 
 	//test mature filter
-	var example_input = [
+	var input_for_mature_filter = [
         {
             name: "server_f",
             value: "",
@@ -631,7 +631,7 @@ function run_tests() {
         }
     ];
 
-    $.post('/OWLFGtest/todoteamname/tests/filter_test.php', input_for_servlang_filter, function(testData) {
+    $.post('/OWLFGtest/todoteamname/tests/filter_test.php', input_for_mature_filter, function(testData) {
         console.log("\nTesting Mature Filter...");
 
 		// Mature filter test expected results
@@ -647,11 +647,4 @@ function run_tests() {
     }
     ,
     'json');
-
-
-
-
-
-
-
 };
