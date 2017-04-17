@@ -12,6 +12,7 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/owlfg.js"></script>
 		<script type="text/javascript" src="js/filter.js"></script>
+		<script type="text/javascript" src="js/api.js"></script>
 		<!--Plugin for the input slider via CDN. Source: https://github.com/seiyria/bootstrap-slider-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.min.js"></script>  
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css"/>
@@ -180,8 +181,10 @@
                                         name="username" 
                                     >
 								</div>
-							<!--Find Me Button-->
+							<!--Find Me Button
 							<button type="button" class="btn btn-default" id="find-player-from-api" data-dismiss="modal">Find Me</button>
+							-->
+							<a class="btn btn-primary" id="find-player-from-api" onclick="getUserFromApi()">Find Me</a>
 							<!--Server-->
 								<div class="form-group" id="modal-form">
 									<label for="">Server*</label>
