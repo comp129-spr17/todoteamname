@@ -12,21 +12,24 @@ include_once("playerdb.php"); // $playerdb
 include_once("constants.php"); // constants
 include_once("functions.php"); // functions
 
+$testSR = '2390';
+$testLVL = '185';
+
 //$cookie_values
 setcookie($cookie_values, time() + (86400 * 30), "/"); // 86400 = 1 day cookie
 
 if(isset($_POST['username'])
     && isset($_POST['server'])
     && isset($_POST['language'])
-    && isset($_POST['sr'])
-    && isset($_POST['level'])
+    //&& isset($_POST['sr'])
+    //&& isset($_POST['level'])
     && isset($_POST['platform'])
     && isset($_POST['role'])
     && !empty($_POST['username'])
     && !empty($_POST['server'])
     && !empty($_POST['language'])
-    && !empty($_POST['sr'])
-    && !empty($_POST['level'])
+    //&& !empty($_POST['sr'])
+    //&& !empty($_POST['level'])
     && !empty($_POST['platform'])
     && !empty($_POST['role'])
 ){
@@ -34,8 +37,8 @@ if(isset($_POST['username'])
     setcookie('username', $_POST['username'],time()+3600, '/');
     setcookie('server', $_POST['server'],time()+3600,'/');
     setcookie('language', $_POST['language'],time()+3600, '/');
-    setcookie('sr', $_POST['sr'],time()+3600, '/');
-    setcookie('level',$_POST['level'],time()+3600, '/');
+    setcookie('sr', $testSR,time()+3600, '/');
+    setcookie('level',$testLVL,time()+3600, '/');
     setcookie('platform', $_POST['platform'],time()+3600, '/');
     setcookie('role',$_POST['role'],time()+3600, '/');
 
@@ -71,14 +74,16 @@ if(isset($_POST['username'])
 
     // num field validations (also prevents sql injection)
     // note: we still would need to do slider number validations (maybe)
-    $sr_str = $_POST['sr'];
+    //$sr_str = $_POST['sr'];
+    $sr_str = $testSR;
     if(is_numeric($sr_str)){
         $sr = (int)$sr_str;
     }else{
         $sr = $SR_DEFAULT;
     }
 
-    $lvl_str = $_POST['level'];
+    //$lvl_str = $_POST['level'];
+    $lvl_str = $testLVL;
     if(is_numeric($lvl_str)){
         $lvl = (int)$lvl_str;
     }else{
@@ -96,10 +101,10 @@ if(isset($_POST['username'])
     // check for mic
     if(isset($_POST['mic'])){
         $values = $values.",TRUE,";
-		setcookie('mic',"TRUE",time()+3600, '/');
+        setcookie('mic',"TRUE",time()+3600, '/');
     }else{
         $values = $values.",FALSE,";
-		setcookie('mic',"FALSE",time()+3600, '/');
+        setcookie('mic',"FALSE",time()+3600, '/');
     }
         
     $values = $values."'".$role."',";
@@ -107,10 +112,10 @@ if(isset($_POST['username'])
     // check for maturity
     if(isset($_POST['mat'])){
         $values = $values."TRUE,";
-		setcookie('mat',"TRUE",time()+3600, '/');
+        setcookie('mat',"TRUE",time()+3600, '/');
     }else{
         $values = $values."FALSE,";
-		setcookie('mat',"FALSE",time()+3600, '/');
+        setcookie('mat',"FALSE",time()+3600, '/');
     }
 
     $values = $values.$lvl.",";
@@ -118,14 +123,14 @@ if(isset($_POST['username'])
     // check for comp
     if(isset($_POST['comp'])){
         $values = $values."TRUE";
-		setcookie('comp',"TRUE",time()+3600, '/');
+        setcookie('comp',"TRUE",time()+3600, '/');
     }else{
         $values = $values."FALSE";
-		setcookie('comp',"FALSE",time()+3600, '/');
+        setcookie('comp',"FALSE",time()+3600, '/');
     }
 
-	//save values to cookie
-	$cookie_values = $values;
+    //save values to cookie
+    $cookie_values = $values;
     $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
     $query = $playerdb->prepare($sql);
     $query->execute();
@@ -144,14 +149,14 @@ else{
     header("Location:../");
 }else{
 >>>>>>> e72f095b8bb8a5e3428f602e30ff20fa5a9164bf
-	if(!isset($_COOKIE[$cookie_values])) {
-		//if values is saved in a cookie use $cookie_values
-		$fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
-		$fields = $fields."HasMicrophone,Role,Level";
-		$sql = "INSERT INTO Players(".$fields.") VALUES(".$cookie_values.")";
-		$query = $playerdb->prepare($sql);
-		$query->execute();
-	}
+    if(!isset($_COOKIE[$cookie_values])) {
+        //if values is saved in a cookie use $cookie_values
+        $fields = "Name,Info,Server,Platform,GroupSize,Language,SeasonRank,";
+        $fields = $fields."HasMicrophone,Role,Level";
+        $sql = "INSERT INTO Players(".$fields.") VALUES(".$cookie_values.")";
+        $query = $playerdb->prepare($sql);
+        $query->execute();
+    }
 }
 
 ?>
