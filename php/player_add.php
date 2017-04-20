@@ -43,100 +43,97 @@ if(isset($_POST['username'])
 
     // username validation
     if(!is_username_valid($username)){
-?>
-<html><head><title>ERROR</title></head><body>
-<h6 style="color:#8B0000;">Error: Your username is invalid</h6>
-</body></html>
-<?php
-        return;
-    }
-
-    // clean the username
-    $username = clean_username($username);
     
-    // sql injection rejection
-    // (done by escaping single quotes)
-    // we do all fields in case of POST spoofing
-    // (except num fields and checkboxes)
-    // num fields we check using is_numeric and is_int
-    // checkboxes is just a set check, we supply boolean value
-    $username = str_replace("'", "''", $username);
-    $server = str_replace("'", "''", $_POST['server']);
-    $language = str_replace("'", "''", $_POST['language']);
-    $role = str_replace("'", "''", $_POST['role']);
-    $platform = str_replace("'", "''", $_POST['platform']);
-    $contact = str_replace("'", "''", $_POST['contact']);
-
-    // num field validations (also prevents sql injection)
-    // note: we still would need to do slider number validations (maybe)
-    $sr_str = $_POST['sr'];
-    if(is_numeric($sr_str)){
-        $sr = (int)$sr_str;
+        header("Location:../index.html?alert=invalid");
     }else{
-        $sr = $SR_DEFAULT;
-    }
 
-    $lvl_str = $_POST['level'];
-    if(is_numeric($lvl_str)){
-        $lvl = (int)$lvl_str;
-    }else{
-        $lvl = $LVL_DEFAULT;
-    }
-
-    // first do fields
-    $fields = "Name,Info,Server,Platform,Language,SeasonRank,";
-    $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
-
-    // now to do values
-    $values = "'".$username."','".$contact."','".$server."','".$platform."','";
-    $values = $values.$language."',".$sr;
-
-    // check for mic
-    if(isset($_POST['mic'])){
-        $values = $values.",TRUE,";
-		setcookie('mic',"TRUE",time()+3600, '/');
-    }else{
-        $values = $values.",FALSE,";
-		setcookie('mic',"FALSE",time()+3600, '/');
-    }
+        // clean the username
+        $username = clean_username($username);
         
-    $values = $values."'".$role."',";
+        // sql injection rejection
+        // (done by escaping single quotes)
+        // we do all fields in case of POST spoofing
+        // (except num fields and checkboxes)
+        // num fields we check using is_numeric and is_int
+        // checkboxes is just a set check, we supply boolean value
+        $username = str_replace("'", "''", $username);
+        $server = str_replace("'", "''", $_POST['server']);
+        $language = str_replace("'", "''", $_POST['language']);
+        $role = str_replace("'", "''", $_POST['role']);
+        $platform = str_replace("'", "''", $_POST['platform']);
+        $contact = str_replace("'", "''", $_POST['contact']);
 
-    // check for maturity
-    if(isset($_POST['mat'])){
-        $values = $values."TRUE,";
-		setcookie('mat',"TRUE",time()+3600, '/');
-    }else{
-        $values = $values."FALSE,";
-		setcookie('mat',"FALSE",time()+3600, '/');
+        // num field validations (also prevents sql injection)
+        // note: we still would need to do slider number validations (maybe)
+        $sr_str = $_POST['sr'];
+        if(is_numeric($sr_str)){
+            $sr = (int)$sr_str;
+        }else{
+            $sr = $SR_DEFAULT;
+        }
+
+        $lvl_str = $_POST['level'];
+        if(is_numeric($lvl_str)){
+            $lvl = (int)$lvl_str;
+        }else{
+            $lvl = $LVL_DEFAULT;
+        }
+
+        // first do fields
+        $fields = "Name,Info,Server,Platform,Language,SeasonRank,";
+        $fields = $fields."HasMicrophone,Role,IsMature,Level,IsCompetitive";
+
+        // now to do values
+        $values = "'".$username."','".$contact."','".$server."','".$platform."','";
+        $values = $values.$language."',".$sr;
+
+        // check for mic
+        if(isset($_POST['mic'])){
+            $values = $values.",TRUE,";
+            setcookie('mic',"TRUE",time()+3600, '/');
+        }else{
+            $values = $values.",FALSE,";
+            setcookie('mic',"FALSE",time()+3600, '/');
+        }
+            
+        $values = $values."'".$role."',";
+
+        // check for maturity
+        if(isset($_POST['mat'])){
+            $values = $values."TRUE,";
+            setcookie('mat',"TRUE",time()+3600, '/');
+        }else{
+            $values = $values."FALSE,";
+            setcookie('mat',"FALSE",time()+3600, '/');
+        }
+
+        $values = $values.$lvl.",";
+
+        // check for comp
+        if(isset($_POST['comp'])){
+            $values = $values."TRUE";
+            setcookie('comp',"TRUE",time()+3600, '/');
+        }else{
+            $values = $values."FALSE";
+            setcookie('comp',"FALSE",time()+3600, '/');
+        }
+
+        //save values to cookie
+        $cookie_values = $values;
+        $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
+        $query = $playerdb->prepare($sql);
+        $query->execute();
+
+        // TODO: add confirmation message before redirect?
+        //  actually maybe just a session variable that notifies main page about
+        //  data insert.
+       
+
+        header("Location:../");
     }
-
-    $values = $values.$lvl.",";
-
-    // check for comp
-    if(isset($_POST['comp'])){
-        $values = $values."TRUE";
-		setcookie('comp',"TRUE",time()+3600, '/');
-    }else{
-        $values = $values."FALSE";
-		setcookie('comp',"FALSE",time()+3600, '/');
-    }
-
-	//save values to cookie
-	$cookie_values = $values;
-    $sql = "INSERT INTO Players(".$fields.") VALUES(".$values.")";
-    $query = $playerdb->prepare($sql);
-    $query->execute();
-
-    // TODO: add confirmation message before redirect?
-    //  actually maybe just a session variable that notifies main page about
-    //  data insert.
-   
-
-   header("Location:../");
 }
 else{
-    echo "Error: Please fill out all required fields";
+    header("Location:../index.html?alert=fill");
 }/*else{
 =======
     header("Location:../");
