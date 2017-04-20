@@ -38,6 +38,15 @@ function is_username_valid($username){
     return preg_match($username_regex, $username);
 }
 
+/*
+ * Sends a javascrpit alert with the given message
+ *
+ * IN:
+ *  @param msg - the message to send
+ */
+function send_js_alert($msg){
+    echo '<script type="text/javascript">alert("' . $msg . '"); </script>';
+}
 
 ?>
 

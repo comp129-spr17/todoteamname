@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
 include_once("php/constants.php"); // arrays for filling out dropdowns
+include_once("php/functions.php");
 
 if ((!isset($_COOKIE['username'])||empty($_COOKIE['username']))
 && (!isset($_COOKIE['server'])||empty($_COOKIE['server']))
@@ -57,6 +58,17 @@ if (!isset($_COOKIE['comp'])||empty($_COOKIE['comp'])){
 	<body>
 	<!--This is the code for the lattice thing in front of the bg image-->
 	<div id="dot-matrix"></div>
+
+<?php
+// sending js alerts
+    if (isset($_GET['alert'])){
+        if ($_GET['alert'] == $ALERT_INVALID_KEY){
+            send_js_alert($ALERT_INVALID);
+        }else if ($_GET['alert'] == $ALERT_FILL_KEY){
+            send_js_alert($ALERT_FILL);
+        } 
+    }
+?>
 
 <!-- navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">

@@ -51,4 +51,12 @@ $platforms = [
 // regex for username validation
 $username_regex = "/^\p{L}[\p{L}0-9]{2,11}#[0-9]{4}$/";
 
+// alert message
+$ALERT_INVALID = "Please enter a valid username";
+$ALERT_INVALID_KEY = "invalid";
+
+// fill out message
+$ALERT_FILL = "Please fill out all required fields";
+$ALERT_FILL_KEY = "fill";
+
 ?>
