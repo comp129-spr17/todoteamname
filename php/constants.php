@@ -47,6 +47,13 @@ $platforms = [
     2 => "PC",
 ];
 
+// character encodings
+$valid_encodings = [
+    0 => "ISO-8859-16",
+    1 => "7bit",
+    2 => "EUC-CN",
+    3 => "CP1251",
+];
 
 // regex for username validation
 $username_regex = "/^\p{L}[\p{L}0-9]{2,11}#[0-9]{4}$/";

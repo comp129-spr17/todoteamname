@@ -34,8 +34,15 @@ function clean_username($username){
  */
 function is_username_valid($username){
     global $username_regex;
+    global $valid_encodings;
 
-    return preg_match($username_regex, $username);
+    foreach ($valid_encodings as $e){
+        if (preg_match($username_regex, mb_convert_encoding($username, $e))){
+            return true;
+        }
+    }
+
+    return false;
 }
 
 /*
