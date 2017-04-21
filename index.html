@@ -2,6 +2,12 @@
 <?php
 include_once("php/constants.php"); // arrays for filling out dropdowns
 
+//temporary fix for cookies messing up webpage at the beginning
+if (!isset($_COOKIE['initialize'])||empty($_COOKIE['initialize'])){
+	setcookie("initialize", '1', time()+3600, '/');
+	header('Location:./');
+}
+
 if ((!isset($_COOKIE['username'])||empty($_COOKIE['username']))
 && (!isset($_COOKIE['server'])||empty($_COOKIE['server']))
     && (!isset($_COOKIE['language'])||empty($_COOKIE['language']))
@@ -310,7 +316,8 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 					<!--Mic-->
 						<div class="checkbox container-fluid col-md-2" id="modal-form" name="mic_f">
 							<label style="font-size: 1.5em">
-							<input name ="mic_f" type ="checkbox" value="TRUE">
+							<input name ="mic_f" type ="checkbox" value="TRUE" <?php if($_COOKIE['fmic'] != 1){ echo 'checked';} ?>
+							>
 							<span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 							<i class="fa fa-microphone" aria-hidden="true"></i>
 							</label>
@@ -318,7 +325,8 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 					<!--Is Competitive Button-->
 						<div class="checkbox container-fluid col-md-2" id="modal-form" name="comp_f">
 							<label style="font-size: 1.5em">
-							<input name ="comp_f" type ="checkbox" value="TRUE">
+							<input name ="comp_f" type ="checkbox" value="TRUE" <?php if($_COOKIE['fcomp'] != 1){ echo 'checked';} ?>
+							>
 							<span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 							Competitive
 							</label>
@@ -326,7 +334,8 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 					<!--Is Mature Button-->
 						<div class="checkbox container-fluid col-md-2" id="modal-form" name="mat_f">
 							<label style="font-size: 1.5em">
-							<input name ="mat_f" type ="checkbox" value="TRUE">
+							<input name ="mat_f" type ="checkbox" value="TRUE" <?php if($_COOKIE['fmat'] != 1){ echo 'checked';} ?>
+							>
 							<span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 							18+
 							</label>
@@ -583,7 +592,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 								<div class="checkbox" id="modal-form" name="mic">
 									<label><input 
                                         name ="mic"
-                                        type ="checkbox" value="TRUE">
+                                        type ="checkbox" value="TRUE"
+                                        <?php if($_COOKIE['mic'] != 1){ echo 'checked';} ?>
+                                        >
                                         <span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                         Microphone</label>
 								</div>
@@ -592,7 +603,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 								<div class="checkbox" id="modal-form" name="iscompetitive">
 									<label><input 
                                         name = "comp"
-                                        type ="checkbox" value="TRUE">
+                                        type ="checkbox" value="TRUE"
+                                        <?php if($_COOKIE['comp'] != 1){ echo 'checked';} ?>
+                                        >
                                         <span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                         Competitive</label>	
 								</div>
@@ -600,7 +613,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 								<div class="checkbox" id="modal-form" name="ismature">
 									<label><input 
                                         name = "mat"
-                                        type ="checkbox" value="TRUE">
+                                        type ="checkbox" value="TRUE"
+                                        <?php if($_COOKIE['mat'] != 1){ echo 'checked';} ?>
+                                        >
                                         <span class="cr sharp"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                                         Mature</label>
 								</div>
