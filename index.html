@@ -93,6 +93,17 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 	<!--This is the code for the lattice thing in front of the bg image-->
 	<div id="dot-matrix"></div>
 
+<?php
+// sending js alerts
+    if (isset($_GET['alert'])){
+        if ($_GET['alert'] == $ALERT_INVALID_KEY){
+            send_js_alert($ALERT_INVALID);
+        }else if ($_GET['alert'] == $ALERT_FILL_KEY){
+            send_js_alert($ALERT_FILL);
+        } 
+    }
+?>
+
 <!-- navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
