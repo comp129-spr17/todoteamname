@@ -176,14 +176,12 @@
 									<input 
                                         type="text" 
                                         class="form-control" 
-                                        id="" 
+                                        id="addUsername" 
                                         placeholder="Username"
                                         name="username" 
                                     >
 								</div>
-							<!--Find Me Button
-							<button type="button" class="btn btn-default" id="find-player-from-api" data-dismiss="modal">Find Me</button>
-							-->
+							<!--Find Me Button-->
 							<a class="btn btn-primary" id="find-player-from-api" onclick="getUserFromApi()">Find Me</a>
 							<!--Server-->
 								<div class="form-group" id="modal-form">
@@ -216,7 +214,7 @@
 									</select>
 								</div>
 							<!--SR rank-->
-								<!--
+							<!--
 								<div class="form-group" id="modal-form">
 									<label for="">SR Rank</label><br>
 									<input id="sr-slide-listme" 
@@ -227,8 +225,16 @@
 									name="sr"
 									/>
 								</div>
-								-->
-								<p>SR: </p>
+							-->
+								<div class="form-group" id="modal-form">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="SR rankID"
+                                        name="sr" 
+                                        value="2070"
+                                    >
+								</div>
 							<!--Level-->
 								<!--
 								<div class="form-group" id="modal-form">
@@ -243,7 +249,15 @@
 									/>
 								</div>
 								-->
-								<p>Level: </p>
+								<div class="form-group" id="modal-form">
+									<input 
+                                        type="" 
+                                        class="form-control" 
+                                        id="levelID"
+                                        name="level" 
+                                        
+                                    >
+								</div>
 							<!--Role-->
 								<div class="form-group" id="modal-form">
 									<label for="">Role / Position*</label>
