@@ -11,8 +11,7 @@
  *    the information in JSON format to be used by js code
  *    to print the data to the results page
  *    
- */
-
+ */	
 header('Content-type: text/json');
 
 include_once("playerdb.php"); // $playerdb
@@ -28,6 +27,8 @@ $multiVar = false;
 $condition = "";
 
 
+
+
 // Initialize all data to *
 // $server = "*";
 // $language = "*";
@@ -41,6 +42,7 @@ $condition = "";
 // $mat = "*";
 
 
+
 // Check whether there is data from POST
 // If so, get the data and add it to the filter
 if (isset($_POST['server_f']) && !empty($_POST['server_f'])){
@@ -48,6 +50,8 @@ if (isset($_POST['server_f']) && !empty($_POST['server_f'])){
 	$condition = $condition . "Server = '" . $server_f . "'";
 	$postData = true;
 	$multiVar = true;
+	//set fserver cookie
+	setcookie('fserver', $_POST['server_f'],time()+3600,'/');
 }
 if (isset($_POST['language_f']) && !empty($_POST['language_f'])){
     $language_f = str_replace("'", "''", $_POST['language_f']);
@@ -59,6 +63,8 @@ if (isset($_POST['language_f']) && !empty($_POST['language_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set flanguage cookie
+	setcookie('flanguage', $_POST['language_f'],time()+3600, '/');
 }
 if (isset($_POST['sr_f']) && !empty($_POST['sr_f'])){
 	$srStart = split(',',$_POST['sr_f'])[0];
@@ -71,6 +77,8 @@ if (isset($_POST['sr_f']) && !empty($_POST['sr_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set fsr cookie
+	setcookie('fsr', $_POST['sr_f'],time()+3600, '/');
 }
 if (isset($_POST['role_f']) && !empty($_POST['role_f'])){
     $role_f = str_replace("'", "''", $_POST['role_f']);
@@ -82,6 +90,8 @@ if (isset($_POST['role_f']) && !empty($_POST['role_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set frole cookie
+	setcookie('frole', $_POST['role_f'],time()+3600, '/');
 }
 if (isset($_POST['level_f']) && !empty($_POST['level_f'])){
 	$lvlStart = split(',',$_POST['level_f'])[0];
@@ -94,6 +104,8 @@ if (isset($_POST['level_f']) && !empty($_POST['level_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set flevel cookie
+	setcookie('flevel', $_POST['level_f'],time()+3600, '/');
 }
 if (isset($_POST['platform_f']) && !empty($_POST['platform_f'])){
     $platform_f = str_replace("'", "''", $_POST['platform_f']);
@@ -105,6 +117,8 @@ if (isset($_POST['platform_f']) && !empty($_POST['platform_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set fplatform cookie
+	setcookie('fplatform', $_POST['platform_f'],time()+3600, '/');
 }
 if (isset($_POST['mic_f']) && !empty($_POST['mic_f'])){
     $mic_f = str_replace("'", "''", $_POST['mic_f']);
@@ -116,6 +130,8 @@ if (isset($_POST['mic_f']) && !empty($_POST['mic_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set fmic cookie
+	setcookie('fmic', $_POST['mic_f'],time()+3600, '/');
 }
 if (isset($_POST['comp_f']) && !empty($_POST['comp_f'])){
     $comp_f = str_replace("'", "''", $_POST['comp_f']);
@@ -127,6 +143,8 @@ if (isset($_POST['comp_f']) && !empty($_POST['comp_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set fcomp cookie
+	setcookie('fcomp', $_POST['comp_f'],time()+3600, '/');
 }
 if (isset($_POST['mat_f']) && !empty($_POST['mat_f'])){
     $mat_f = str_replace("'", "''", $_POST['mat_f']);
@@ -138,10 +156,11 @@ if (isset($_POST['mat_f']) && !empty($_POST['mat_f'])){
 	}
 	$postData = true;
 	$multiVar = true;
+	//set fmat cookie
+	setcookie('fmat', $_POST['mat_f'],time()+3600, '/');
 }
 
 
-	
 
 
 // How the players should be filtered

@@ -64,6 +64,29 @@ if(isset($_POST['server_f']) ||
 ){//do nothing}else{
 //add cookie to condition
 $condition = $cookie_condition
+    if(isset($_POST['server_f']){
+		setcookie('fserver', $_POST['server_f'],time()+3600,'/');
+	}	
+	if(isset($_POST['language_f'])){
+		setcookie('flanguage', $_POST['language_f'],time()+3600, '/');
+	}
+	if(isset($_POST['sr_f'])){
+		setcookie('fsr', $_POST['sr_f'],time()+3600, '/');
+	}
+	if(isset($_POST['role_f'])){
+		setcookie('frole',$_POST['role_f'],time()+3600, '/');
+	}
+	if(isset($_POST['level_f'])){
+		setcookie('flevel',$_POST['level_f'],time()+3600, '/');
+	}
+	if(isset($_POST['platform_f'])){
+		setcookie('fplatform', $_POST['platform_f'],time()+3600, '/');
+	}
+	//isset($_POST['gSize_f']) ||
+	if(isset($_POST['mic_f'])){
+		setcookie('fmic',$_POST['mic_f'],time()+3600,'/');
+	}	
+
 }
 
 // Code to actually execute the query on the database
