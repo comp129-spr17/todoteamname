@@ -34,9 +34,10 @@ req = urllib2.Request(site, headers=hdr)
 
 #catch http errors
 try:
-    page = urllib2.urlopen(req)
+	page = urllib2.urlopen(req)
 except urllib2.HTTPError, e:
-    sys.exit("\n" + "profile " + args.userName + " not found!" + "\n")
+	print "error"
+	sys.exit("API error: player not found")
 
 #parse and print JSON data
 #look for comp rank, level, and prestige
@@ -54,7 +55,7 @@ actualLvl = (prestige*100) + levelDig
 #COMPETITIVE RANK
 rank = j['us']['stats']['competitive']['overall_stats']['comprank']
 
-print "\n" + "Returning player data for " + args.userName + "\n"
+print "\n" + "Returning API player data for " + args.userName + "\n"
 print "Rank: " + (str)(rank)
 print "Level: " + (str)(actualLvl) + "\n"
 

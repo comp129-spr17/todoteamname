@@ -1,22 +1,23 @@
+//api.js created by Nathan Stowe
+//for the OverwatchLFG COMP55 Project
+
+//This script gets the username from the HTML, and passes to api.php, which is run using it
+//TODO: get data back into HTML, replace # with - in username
+
 function getUserFromApi(){
-	//console.log($.get("/OverwatchLFG/php/api.php"));
+	//get the username from html
 	var username = document.getElementById('addUsername').value;
-	//var data = {str: username};
-	var data = "str=SquarePlanet-1416"
-	alert(data);
-	//document.getElementById(
-	//console.log(username);
-	//document.getElementById("levelID").innerHTML = 5060606;
-	$.post('/OverwatchLFG/php/api.php', data, function(players) {
-		console.log($.get("/OverwatchLFG/php/api.php"));
-		//console.log();
-		//$("#results-table tbody tr").remove();
-			
+
+	//TODO:replace # with -
+
+
+	//add str= for passing to the php function
+	username = "str=" + username;
+
+	$.post('/OverwatchLFG/php/api.php', username, function(players) {
+		console.log(players);
 		
-		//document.getElementById("addUsername").value = $.get("/OverwatchLFG/php/api.php").responseText;
-		//return false;
 	}
-	
 	);
 }
 
