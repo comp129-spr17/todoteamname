@@ -8,8 +8,12 @@ function getUserFromApi(){
 	//get the username from html
 	var username = document.getElementById('addUsername').value;
 
-	//TODO:replace # with -
-
+	//if the username has a #
+	var hashPosition = username.indexOf("#");
+	if(username.indexOf("#") != -1){
+		username = username.replace("#","-");
+		var front = username.slice(0, username.indexOf("#"));
+	}
 
 	//add str= for passing to the php function
 	username = "str=" + username;
