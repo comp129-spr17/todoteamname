@@ -8,20 +8,33 @@ function getUserFromApi(){
 	//get the username from html
 	var username = document.getElementById('addUsername').value;
 
-	//if the username has a #
-	var hashPosition = username.indexOf("#");
-	if(username.indexOf("#") != -1){
-		username = username.replace("#","-");
-		var front = username.slice(0, username.indexOf("#"));
-	}
+    $.post('/OverwatchLFG/php/username_check.php', "username-raw="+username, 
+        function(output){
+            
+            if ($.trim(output) === "-1"){
+                // didnt pass check, send alert and bail
+                alert("Please enter a valid username");
 
-	//add str= for passing to the php function
-	username = "str=" + username;
+                return false;
+            }
 
-	$.post('/OverwatchLFG/php/api.php', username, function(players) {
-		console.log(players);
-		
-	}
-	);
+            //if the username has a #
+            var hashPosition = username.indexOf("#");
+            if(username.indexOf("#") != -1){
+                username = username.replace("#","-");
+                var front = username.slice(0, username.indexOf("#"));
+            }
+
+            //add str= for passing to the php function
+            username = "str=" + username;
+
+            $.post('/OverwatchLFG/php/api.php', username, function(players) {
+                console.log(players);
+                
+            }
+            );
+        }
+    );
+
 }
 
