@@ -38,14 +38,26 @@ $(document).ready(function(){
     });
 
     // Top down SR sort
-    $(document.body).on("click", "#sr-sort-button", function() {
-       document.getElementById('order-on').value = "sr";
+    $(document.body).on("click", "#sr-sort-button-descending", function() {
+       document.getElementById('order-on').value = "sr_d";
+       filter();
+    });
+
+    // Bottom up SR sort
+    $(document.body).on("click", "#sr-sort-button-ascending", function() {
+       document.getElementById('order-on').value = "sr_a";
        filter();
     });
 
     // Top down LVL sort
-    $(document.body).on("click", "#level-sort-button", function() {
-        document.getElementById('order-on').value = "lvl";
+    $(document.body).on("click", "#level-sort-button-descending", function() {
+        document.getElementById('order-on').value = "lvl_d";
+        filter();
+    });
+
+    // Bottom up LVL sort
+    $(document.body).on("click", "#level-sort-button-ascending", function() {
+        document.getElementById('order-on').value = "lvl_a";
         filter();
     });
 

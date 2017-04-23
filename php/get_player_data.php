@@ -184,7 +184,7 @@ else {
 
 // output the different json based on what the hidden value is in order_type
 switch ($ordering_type) {
-    case "sr":
+    case "sr_d":
         if ($postData){
 			$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY SeasonRank DESC";
 		}
@@ -192,12 +192,28 @@ switch ($ordering_type) {
 			$sql = "SELECT DISTINCT * FROM Players ORDER BY SeasonRank DESC";
 		}
         break;
-    case "lvl":
+	case "sr_a":
+        if ($postData){
+			$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY SeasonRank ASC";
+		}
+		else{
+			$sql = "SELECT DISTINCT * FROM Players ORDER BY SeasonRank ASC";
+		}
+        break;
+	case "lvl_d":
         if ($postData){
 		$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY Level DESC";
 		}
 		else{
 			$sql = "SELECT DISTINCT * FROM Players ORDER BY Level DESC";
+		}
+        break;
+    case "lvl_a":
+        if ($postData){
+		$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY Level ASC";
+		}
+		else{
+			$sql = "SELECT DISTINCT * FROM Players ORDER BY Level ASC";
 		}
         break;
     default:

@@ -172,18 +172,29 @@ body {
     padding: 0px;
 }
 
-#sr-sort-button {
+#sr-sort-button-ascending {
     position: absolute;
     border: 0px;
     top: 50%;
-    right: 15%;
+    right: 20%;
     /*background-color: hsla(220, 29%, 35%, 0.65);*/
     background-color: transparent;
     color: #f8f8f8;
     padding: 0px;
 }
 
-#level-sort-button {
+#sr-sort-button-descending {
+    position: absolute;
+    border: 0px;
+    top: 50%;
+    right: 18%;
+    /*background-color: hsla(220, 29%, 35%, 0.65);*/
+    background-color: transparent;
+    color: #f8f8f8;
+    padding: 0px;
+}
+
+#level-sort-button-ascending {
     position: absolute;
     border: 0px;
     top: 50%;
@@ -194,8 +205,33 @@ body {
     padding: 0px;
 }
 
-#sr-sort-button:hover, #level-sort-button:hover, #refresh-button:hover {
+#level-sort-button-descending {
+    position: absolute;
+    border: 0px;
+    top: 50%;
+    right: 8%;
+    /*background-color: hsla(220, 29%, 35%, 0.65);*/
+    background-color: transparent;
+    color: #f8f8f8;
+    padding: 0px;
+}
+
+#sr-sort-button-descending:hover, #level-sort-button-descending:hover, #refresh-button:hover, #ascending-icon:hover {
     color: rgba(229,229,229,0.5);
+}
+
+#sr-sort-label {
+    position: absolute;
+    border: 0px;
+    top: 10%;
+    right: 20%;
+}
+
+#lvl-sort-label {
+    position: absolute;
+    border: 0px;
+    top: 10%;
+    right: 9%;
 }
 
 #results {
