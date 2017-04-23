@@ -167,6 +167,20 @@ else {
 	$ordering_type = "default";
 }
 
+// How the players should be filtered
+// $condition = "
+// Server = " .$server. " AND
+// Language = " .$language. " AND
+// (SeasonRank <= " .($sr + 500). " OR
+// SeasonRank >= " .($sr - 500). ") AND
+// Role = " .$role. " AND
+// (Level <= " .($level + 50). " OR
+// Level >= " .($level - 50). ") AND
+// Platform = " .$platform. " AND
+// HasMicrophone = " .$mic . " AND
+// IsMature = " . $mat . " AND
+// IsCompetitive = " . $comp . "";
+
 
 // output the different json based on what the hidden value is in order_type
 switch ($ordering_type) {
