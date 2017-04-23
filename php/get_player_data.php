@@ -28,7 +28,6 @@ $condition = "";
 
 
 
-
 // Initialize all data to *
 // $server = "*";
 // $language = "*";
@@ -160,31 +159,40 @@ if (isset($_POST['mat_f']) && !empty($_POST['mat_f'])){
 	setcookie('fmat', $_POST['mat_f'],time()+3600, '/');
 }
 
-
-
-
-// How the players should be filtered
-// $condition = "
-// Server = " .$server. " AND
-// Language = " .$language. " AND
-// (SeasonRank <= " .($sr + 500). " OR
-// SeasonRank >= " .($sr - 500). ") AND
-// Role = " .$role. " AND
-// (Level <= " .($level + 50). " OR
-// Level >= " .($level - 50). ") AND
-// Platform = " .$platform. " AND
-// HasMicrophone = " .$mic . " AND
-// IsMature = " . $mat . " AND
-// IsCompetitive = " . $comp . "";
-
-
-
-// Set up the SQL query
-if ($postData){
-	$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY creationTime DESC";
+// get the type of filtering via post
+if (isset($_POST['order_type']) && !empty($_POST['order_type'])) {
+	$ordering_type = $_POST['order_type'];
 }
-else{
-	$sql = "SELECT DISTINCT * FROM Players ORDER BY creationTime DESC";
+else {
+	$ordering_type = "default";
+}
+
+
+// output the different json based on what the hidden value is in order_type
+switch ($ordering_type) {
+    case "sr":
+        if ($postData){
+			$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY SeasonRank DESC";
+		}
+		else{
+			$sql = "SELECT DISTINCT * FROM Players ORDER BY SeasonRank DESC";
+		}
+        break;
+    case "lvl":
+        if ($postData){
+		$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY Level DESC";
+		}
+		else{
+			$sql = "SELECT DISTINCT * FROM Players ORDER BY Level DESC";
+		}
+        break;
+    default:
+        if ($postData){
+		$sql = "SELECT DISTINCT * FROM Players WHERE " . $condition . " ORDER BY creationTime DESC";
+		}
+		else{
+			$sql = "SELECT DISTINCT * FROM Players ORDER BY creationTime DESC";
+		}	
 }
 
 

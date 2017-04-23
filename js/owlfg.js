@@ -31,6 +31,24 @@ $(document).ready(function(){
 	    }
     });
 
+    // When the refine button is clicked, set the sort value to defualt (timestamp)
+    $(document.body).on("click", "#refine-button", function() {
+       document.getElementById('order-on').value = "default";
+       filter();
+    });
+
+    // Top down SR sort
+    $(document.body).on("click", "#sr-sort-button", function() {
+       document.getElementById('order-on').value = "sr";
+       filter();
+    });
+
+    // Top down LVL sort
+    $(document.body).on("click", "#level-sort-button", function() {
+        document.getElementById('order-on').value = "lvl";
+        filter();
+    });
+
     // When the refresh button is pressed the contents of the table are 
     // removed and re-drawn to the page, for updating the table without 
     // refreshing the page

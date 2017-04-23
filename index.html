@@ -352,7 +352,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 							</label>
 						</div>
 
-						<a class="btn btn-primary btn-lg btn-noborder" id="refine-button" onclick="filter()">REFINE</a>
+						<input id="order-on" type="hidden" name="order_type" value="default"/>
+
+						<a class="btn btn-primary btn-lg btn-noborder" id="refine-button" onclick="">REFINE</a>
 
 					</form>
 				</div>
@@ -652,6 +654,8 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 			<div id="results" class="container-fluid col-md-12">
 				<div id="results-label" class="container-fluid col-md-12">
 					<h3>RESULTS</h3>
+					<button type="button" class="btn btn-info btn-lg" id="sr-sort-button" onclick=""><span class="glyphicon glyphicon-sort-by-attributes"></span>SR</button>
+					<button type="button" class="btn btn-info btn-lg" id="level-sort-button" onclick=""><span class="glyphicon glyphicon-sort-by-attributes"></span>Level</button>
 				</div>
 				<div id="results-div" class="table-responsive pre-scrollable container-fluid col-md-12">
 					<!-- maybe a search feature? -->
