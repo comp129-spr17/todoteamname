@@ -74,6 +74,7 @@ $(document).ready(function(){
 // On page load, the entire database contents are inserted into the results table
 $(window).on("load", function() {
     build_table();
+    setInterval(function() {filter()}, 60000);
 });
 
 
