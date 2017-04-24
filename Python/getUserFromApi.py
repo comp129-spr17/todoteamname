@@ -55,7 +55,5 @@ actualLvl = (prestige*100) + levelDig
 #COMPETITIVE RANK
 rank = j['us']['stats']['competitive']['overall_stats']['comprank']
 
-print "\n" + "Returning API player data for " + args.userName + "\n"
-print "Rank: " + (str)(rank)
-print "Level: " + (str)(actualLvl) + "\n"
-
+#output sr and lvl
+print (str)(rank) + "," + (str)(actualLvl)
