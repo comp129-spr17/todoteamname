@@ -37,27 +37,35 @@ $(document).ready(function(){
        filter();
     });
 
-    // Top down SR sort
+     // Top down SR sort
     $(document.body).on("click", "#sr-sort-button-descending", function() {
-       document.getElementById('order-on').value = "sr_d";
-       filter();
+        $('button').removeClass('active');
+        document.getElementById('order-on').value = "sr_d";
+        $(this).addClass('active');
+        filter();
     });
 
     // Bottom up SR sort
     $(document.body).on("click", "#sr-sort-button-ascending", function() {
-       document.getElementById('order-on').value = "sr_a";
-       filter();
+        $('button').removeClass('active');
+        document.getElementById('order-on').value = "sr_a";
+        $(this).addClass('active');
+        filter();
     });
 
     // Top down LVL sort
     $(document.body).on("click", "#level-sort-button-descending", function() {
+        $('button').removeClass('active');
         document.getElementById('order-on').value = "lvl_d";
+        $(this).addClass('active');
         filter();
     });
 
     // Bottom up LVL sort
     $(document.body).on("click", "#level-sort-button-ascending", function() {
+        $('button').removeClass('active');
         document.getElementById('order-on').value = "lvl_a";
+        $(this).addClass('active');
         filter();
     });
 

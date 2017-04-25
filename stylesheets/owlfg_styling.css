@@ -216,7 +216,12 @@ body {
     padding: 0px;
 }
 
-#sr-sort-button-descending:hover, #level-sort-button-descending:hover, #refresh-button:hover, #ascending-icon:hover {
+/* when the filter buttons are active, change the color to signify that it is the active fiter */
+.active {
+    color: hsla(220, 29%, 35%, 1) !important;
+}
+
+#sr-sort-button-descending:hover, #level-sort-button-descending:hover, #sr-sort-button-ascending:hover, #level-sort-button-ascending:hover, #refresh-button:hover {
     color: rgba(229,229,229,0.5);
 }
 
