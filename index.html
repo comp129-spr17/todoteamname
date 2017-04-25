@@ -135,7 +135,7 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 							 <?php
                                         if ($_COOKIE['fserver'] === '1'){
                                     ?>
-                                    <option value="" selected hidden>Select Server</option>
+                                    <option value="" selected>Any</option>
                                     <?php
                                         foreach ($servers as $ser){
                                     ?>
@@ -143,6 +143,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                     <?php
                                     }
                                     }else{
+                                    ?>
+                                    <option value="">Any</option>
+                                    <?php
                                         foreach ($servers as $ser){
                                     ?>
                                     <option value="<?php echo $ser;?>"
@@ -166,7 +169,7 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                         <?php
                                         if ($_COOKIE['flanguage'] === '1'){
                                         ?>
-                                        <option value="" selected hidden>Select Language</option>
+                                        <option value="" selected>Any</option>
                                         <?php
                                             foreach ($languages as $lang){
                                         ?>
@@ -174,6 +177,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                         <?php
                                             }
                                         }else{
+                                        ?>
+                                        <option value="">Any</option>
+                                        <?php
                                             foreach ($languages as $lang){
                                         ?>
                                         <option value="<?php echo $lang;?>"
@@ -197,7 +203,7 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                         <?php
                                         if ($_COOKIE['frole'] === '1'){
                                         ?>
-                                        <option value="" selected hidden>Select Role</option>
+                                        <option value="" selected>Any</option>
                                         <?php
                                             foreach ($roles as $rol){
                                         ?>
@@ -205,6 +211,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                         <?php
                                             }
                                         }else{
+                                        ?>
+                                        <option value="">Any</option>
+                                        <?php
                                             foreach ($roles as $rol){
                                         ?>
                                         <option value="<?php echo $rol;?>"
@@ -228,7 +237,7 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                         <?php
                                         if ($_COOKIE['fplatform'] === '1'){
                                         ?>
-                                        <option value="" selected hidden>Select Platform</option>
+                                        <option value="" selected>Any</option>
                                         <?php
                                             foreach ($platforms as $plat){
                                         ?>
@@ -236,6 +245,9 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
                                         <?php
                                             }
                                         }else{
+                                        ?>
+                                        <option value="">Any</option>
+                                        <?php
                                             foreach ($platforms as $plat){
                                         ?>
                                         <option value="<?php echo $plat;?>"
