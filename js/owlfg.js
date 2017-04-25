@@ -33,8 +33,9 @@ $(document).ready(function(){
 
     // When the refine button is clicked, set the sort value to defualt (timestamp)
     $(document.body).on("click", "#refine-button", function() {
-       document.getElementById('order-on').value = "default";
-       filter();
+        $('button').removeClass('active');
+        document.getElementById('order-on').value = "default";
+        filter();
     });
 
      // Top down SR sort
