@@ -93,7 +93,7 @@ if(isset($_POST['username'])
             setcookie('mic',"TRUE",time()+3600, '/');
         }else{
             $values = $values.",FALSE,";
-            setcookie('mic',"FALSE",time()+3600, '/');
+            setcookie('mic','1',time()+3600, '/');
         }
             
         $values = $values."'".$role."',";
@@ -104,7 +104,7 @@ if(isset($_POST['username'])
             setcookie('mat',"TRUE",time()+3600, '/');
         }else{
             $values = $values."FALSE,";
-            setcookie('mat',"FALSE",time()+3600, '/');
+            setcookie('mat','1',time()+3600, '/');
         }
 
         $values = $values.$lvl.",";
@@ -115,7 +115,7 @@ if(isset($_POST['username'])
             setcookie('comp',"TRUE",time()+3600, '/');
         }else{
             $values = $values."FALSE";
-            setcookie('comp',"FALSE",time()+3600, '/');
+            setcookie('comp','1',time()+3600, '/');
         }
 
         //save values to cookie
