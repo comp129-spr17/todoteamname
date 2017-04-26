@@ -26,7 +26,15 @@ $multiVar = false;
 // Initialize condition
 $condition = "";
 
-
+setcookie("fserver", '1', time()+3600, '/');
+setcookie("flanguage", '1', time()+3600, '/');
+setcookie("fsr", '1', time()+3600, '/');
+setcookie("flevel", '1', time()+3600, '/');
+setcookie("fplatform", '1', time()+3600, '/');
+setcookie("frole", '1', time()+3600, '/');
+setcookie('fmic',"1",time()+3600, '/');
+setcookie('fmat',"1",time()+3600, '/');
+setcookie('fcomp',"1",time()+3600, '/');
 
 // Initialize all data to *
 // $server = "*";
