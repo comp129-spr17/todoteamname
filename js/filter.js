@@ -1,6 +1,6 @@
 function filter(){
 	$.post('/php/get_player_data.php', $('form').serializeArray(), function(players) {
-		$("#results-table tbody tr").remove();
+        $("#results-table tbody tr").remove();
         if (!jQuery.isEmptyObject(players)) {
             var table = 0;
             $.each(players, function(key, val) {
