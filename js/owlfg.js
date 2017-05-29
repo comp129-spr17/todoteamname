@@ -87,6 +87,39 @@ $(window).on("load", function() {
 });
 
 
+
+function checkUniqueness() 
+{
+          var xmlhttp = new XMLHttpRequest();
+          var username = document.forms["myForm"]["userName"].value;
+          var url = "exist.jsp?username=" + username;
+          xmlhttp.onreadystatechange = function () 
+          {
+               if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+               { 
+                      if (xmlhttp.responseText.includes("NO")) 
+                      {
+                            document.getElementById("eMsg").innerHTML = "Username already exists";
+                      }
+               }
+          };
+          try 
+          {
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+          } 
+          catch (e) 
+          {
+                alert("unable to connect to server");
+          }
+}
+
+
+
+
+
+
+
 // Function to build the table with the data passed in via PHP GET as JSON
 function build_table() {
     $.getJSON('/php/get_player_data.php', function(players) {

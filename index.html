@@ -397,24 +397,31 @@ if (!isset($_COOKIE['fcomp'])||empty($_COOKIE['fcomp'])){
 									<?php 
                                         if($_COOKIE['username'] != '1'){
                                     ?>
-									<input 
-                                        type="text" 
-                                        class="form-control sharp" 
-                                        id=""
-                                        value="<?php echo $_COOKIE['username'];?>"
-                                        name="username"
-                                    />
+                                    <form name="myForm" onsubmit="return validate()">
+										<input 
+	                                        type="text" 
+	                                        class="form-control sharp" 
+	                                        id=""
+	                                        value="<?php echo $_COOKIE['username'];?>"
+	                                        name="username"
+	                                        onblur="checkUniqueness()"
+	                                    />
+	                                    <span id="eMsg" style="color:red;"></span>
+	                                </form>
                                     <?php
                                         }else{
                                     ?>
-                                    <input 
-                                        
-                                   		type="text" 
-                                        class="form-control sharp" 
-                                        id=""
-                                        placeholder="Username"
-                                        name="username" 
-                                    />
+                                    <form name="myForm" onsubmit="return validate()">
+	                                    <input 
+	                                   		type="text" 
+	                                        class="form-control sharp" 
+	                                        id=""
+	                                        placeholder="Username"
+	                                        name="username"
+	                                        onblur="checkUniqueness()" 
+	                                    />
+	                                    <span id="eMsg" style="color:red;"></span>
+                                    </form>
                                     <?php 
                                         }
                                     ?>
